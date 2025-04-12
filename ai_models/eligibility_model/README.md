@@ -12,7 +12,7 @@ The notebook `eligibility_classification.ipynb` contain:
    - Trains a classification model using `train_data_synthetic.csv`
    - The model learns to identify the eligibility
 
-Simply click on the notebook file to view the full analysis, including preprocessing, training steps, and output generation.
+Simply click on the notebook file to view the full analysis, including preprocessing and training.
 
 ---
 
