@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+input,
+select,
+button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+#donation-section,
+#blocks {
+    margin-top: 20px;
+}
+
+.block {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.hash {
+    font-family: monospace;
+    color: #555;
+    word-break: break-all;
+}
+
+#signup-section>div {
+    transition: all 0.3s ease
+}
