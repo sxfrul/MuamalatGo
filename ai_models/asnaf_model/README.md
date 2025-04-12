@@ -1,4 +1,4 @@
-# 🕌 Asnaf Classification & Priority Listing
+# Asnaf Classification & Priority Listing
 
 The dataset used is based on synthetic data.
 
