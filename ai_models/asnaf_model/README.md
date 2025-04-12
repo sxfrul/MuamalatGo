@@ -20,6 +20,4 @@ Simply click on the notebook file to view the full analysis, including preproces
 
 ---
 
-## 📁 Files & Structure
-
 
