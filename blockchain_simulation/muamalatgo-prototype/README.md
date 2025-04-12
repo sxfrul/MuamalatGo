@@ -1,44 +1,65 @@
-📘 MuamalatGo Demo Manual
-✅ How to Run the App
-1. Download or Clone the Project
-  If ZIP:
-    Extract it to a folder.
-  
-  If GitHub: 
-    Clone using git clone https://github.com/sxfrul/MuamalatGo/new/main/blockchain_simulation/muamalatgo-prototype
-    
-2. Open the App
-  Go to the extracted folder.
-  Double-click index.html to open it in your browser.
-  ✅ You do not need to install anything or run a server.
+# 💸 MuamalatGo - Zakat & Waqf Donation Web App
 
-3. Login With Test Account Use one of the following demo accounts:
-  👤 Penderma
-  Email: fizi@mail.com
-  Password: 123alibaba
-  
-  👤 Penerima
-  Email: saitama@jojo.com
-  Password: 123alibaba
+A simulated blockchain-based donation and aid distribution platform focused on **zakat** and **waqf** management.
 
-Explore Features
-Donor Section
-  Make a fake donation
-  View blockchain record
-  Verify blockchain
-  Check fund distribution status
+Built for hackathon presentation with features like:
 
-Recipient Section
-  Submit bantuan application
-  Check fund status
-  View mock dashboard with name + IC
+- 🔒 Firebase Authentication
+- 🔗 Blockchain logging (fake but structured)
+- 🤖 AI-powered fraud detection simulation
+- 📋 Multi-step penerima registration
+- 📦 Firestore database for data tracking
 
-🛠 What You’ll Need
-Modern browser (Chrome, Edge, Firefox)
-Internet access (for Firebase)
+---
 
-⚠️ Notes
-This app uses Firebase and may need login for full features
-Donations and fund tracking are simulated (not real money)
-Status and blockchain are updated live using Firestore
+## 🚀 How to Run the App
 
+1. **Download** or **clone** the project
+2. Open the folder and double-click on `index.html`
+3. The app will launch in your browser (no server needed)
+
+> ⚠️ Internet connection required for Firebase
+
+---
+
+## 🔐 Demo Accounts
+
+### 👤 Penderma (Donor)
+- **Email:** `fizi@mail.com`
+- **Password:** `123alibaba`
+
+### 👤 Penerima (Recipient)
+- **Email:** `saitama@jojo.com`
+- **Password:** `123alibaba`
+
+---
+
+## 🧪 Features to Try
+
+### 🧍 Penerima
+- Fill the multi-step application form (15 steps!)
+- Submit a bantuan request
+- Check latest distribution status
+- View dashboard with name & IC info
+
+### 🫱 Penderma
+- Make a mock donation
+- Choose fund type & fake payment method
+- View simulated blockchain
+- Verify blockchain chain validity
+- View latest aid distribution activity
+
+---
+
+## 🛠 Built With
+
+- Firebase Auth & Firestore
+- JavaScript / HTML / CSS (Vanilla)
+- Simulated Blockchain Logic
+
+---
+
+## 🎓 Made for Hackathon Demo Purposes
+
+This is a prototype meant to demonstrate concept flow, UI, and data interaction.
+No real payment or live fraud detection is implemented.
