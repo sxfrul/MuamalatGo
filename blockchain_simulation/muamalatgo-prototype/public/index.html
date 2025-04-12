@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MuamalatGo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Welcome to MuamalatGo</h2>
+
+  <!-- LOGIN SECTION -->
+  <div id="login-section">
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="authModule.login()">Login</button>
+    <p style="font-family:verdana;">Tiada akaun ke tu?
+      <b onclick="
+        ui.teleportTo('signup-section');
+        document.getElementById('user-category').dispatchEvent(new Event('change'));
+      " style="color:#00CED1">Daftar sekarang!</b>
+    </p>
+  </div>
+
+  <!-- SIGNUP SECTION -->
+  <div id="signup-section" style="display:none">
+    <div>
+      <select id="user-category">
+        <option value="penerima">Penerima</option>
+        <option value="penderma">Penderma</option>
+      </select>
+    </div>
+
+    <div id="signup-penderma" style="display:none">
+      <h3>Maklumat Penderma</h3>
+      <input type="text" id="penderma-nama" placeholder="Nama Penuh">
+      <input type="email" id="penderma-emel" placeholder="Email">
+      <input type="tel" id="penderma-phone" placeholder="No. Telefon Bimbit">
+      <input type="password" id="penderma-password" placeholder="Kata Laluan">
+      <button onclick="authModule.registerPenderma()">Daftar sebagai Penderma</button>
+    </div>
+
+    <div id="signup-penerima-step1" style="display:none">
+      <h3>Dokumen Lampiran Utama</h3>
+      <label><input type="checkbox" id="dokumen-kp"> Salinan No. Kad Pengenalan</label>
+      <label><input type="checkbox" id="dokumen-bank"> Penyata Bank</label>
+      <label><input type="checkbox" id="dokumen-sijil"> Sijil-sijil Berkaitan</label>
+      <label><input type="checkbox" id="dokumen-bil"> Salinan Bil Utiliti</label>
+      <label><input type="checkbox" id="dokumen-kwsp"> Penyata KWSP</label>
+      <h4>Kategori Pemohon:</h4>
+      <label><input type="radio" name="kategori-pemohon" value="individu" checked> Individu</label>
+      <label><input type="radio" name="kategori-pemohon" value="institusi"> Institusi</label>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="ui.teleportTo('login-section')">Kembali</button>
+      </div>
+    </div>
+
+
+    <div id="signup-penerima-step2" style="display:none">
+      <h3>Maklumat Pemohon</h3>
+      <input type="text" id="penerima-nama" placeholder="Nama Pemohon">
+      <input type="email" id="penerima-emel" placeholder="Email">
+      <input type="text" id="penerima-kad" placeholder="Jenis Kad Pengenalan">
+      <input type="text" id="penerima-ic" placeholder="No. Kad Pengenalan">
+      <input type="tel" id="penerima-phone" placeholder="No. Telefon Bimbit">
+      <input type="number" id="penerima-pendapatan" placeholder="Jumlah Pendapatan">
+      <input type="password" id="penerima-password" placeholder="Kata Laluan">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(1)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step3" style="display:none">
+      <h3>Maklumat Pemohon</h3>
+      <input type="text" id="penerima-alamat" placeholder="Alamat">
+      <input type="text" id="penerima-daerah" placeholder="Daerah">
+      <input type="text" id="penerima-poskod" placeholder="Poskod">
+      <input type="text" id="penerima-bandar" placeholder="Bandar">
+      <input type="text" id="penerima-negeri" placeholder="Negeri">
+      <input type="text" id="penerima-kariah" placeholder="Kariah">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(2)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step4" style="display:none">
+      <h3>Maklumat Pemohon</h3>
+      <input type="text" id="penerima-warganegara" placeholder="Warganegara">
+      <input type="text" id="penerima-tarikh-lahir" placeholder="Tarikh Lahir">
+      <input type="text" id="penerima-waris" placeholder="Nama Waris">
+      <input type="tel" id="penerima-phone-waris" placeholder="No. Telefon Rumah/Waris">
+      <input type="nnumber" id="penerima-tahun-menetap" placeholder="Tahun Menetap di Negeri">
+      <select id="penerima-jantina">
+        <option value="lelaki">Lelaki</option>
+        <option value="perempuan">Perempuan</option>
+      </select>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(3)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step5" style="display:none">
+      <h3>Maklumat Pemohon</h3>
+      <select>Kesihatan</select>
+      <label><input type="checkbox" id="cara-bayar-akaun"> Akaun</label>
+      <label><input type="checkbox" id="cara-bayar-cek"> Cek</label>
+      <label><input type="checkbox" id="cara-bayar-tunai"> Tunai</label>
+      <input type="text" id="sebab-pemabyaran-tunai" placeholder="*Sebab Pembayaran Tunai">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(4)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step6" style="display:none">
+      <h3>Poligami</h3>
+      <label><input type="checkbox" name="poligami" value="2"> 2</label>
+      <label><input type="checkbox" name="poligami" value="3"> 3</label>
+      <label><input type="checkbox" name="poligami" value="4"> 4</label>
+      <p>*Untuk Fakir Miskin sahaja</p>
+      <input type="text" placeholder="Nama Si Mati">
+      <input type="text" placeholder="No. K/P Si Mati">
+      <p>*Untuk Muallaf sahaja</p>
+      <input type="text" placeholder="Tarikh Masuk Islam">
+      <p>Hubungan kekeluargaan dengan kakitangan Lembaga Zakat?</p>
+      <button>Ya</button>
+      <button>Tidak</button>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(4)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step7" style="display:none">
+      <h3>Maklumat Kakitangan</h3>
+      <input type="text" placeholder="Nama Kakitangan">
+      <input type="text" placeholder="Pejabat Kakitangan Berhubungan">
+      <input type="text" placeholder="Hubungan">
+      <input type="text" placeholder="Jawatan Kakitangan Berhubungan">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(6)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step8" style="display:none">
+      <h3>Maklumat Isi Rumah</h3>
+      <input type="text" placeholder="Nama Penuh">
+      <input type="text" placeholder="No. K/P">
+      <input type="text" placeholder="Hubungan">
+      <input type="text" placeholder="Umur">
+      <select>
+        <option>Status</option>
+        <option>Berkerja</option>
+        <option>Tidak Berkerja</option>
+        <option>Belajar</option>
+      </select>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(7)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step9" style="display:none">
+      <h3>Maklumat Pendapatan</h3>
+      <select>
+        <option value="">Kesihatan</option>
+        <option value="Kesihatan">Kesihatan</option>
+        <option value="OKU">OKU</option>
+        <option value="Warga Emas">Warga Emas</option>
+      </select>
+      <input type="text" placeholder="Pendapatan Kasar">
+      <input type="text" placeholder="Pendapatan Bersih">
+      <button>Simpan</button>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(8)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step10" style="display:none">
+      <h3>Pekerjaan</h3>
+      <label><input type="checkbox" name="pekerjaan" value="Bekerja"> Bekerja</label>
+      <label><input type="checkbox" name="pekerjaan" value="Bekerja Sendiri"> Bekerja Sendiri</label>
+      <label><input type="checkbox" name="pekerjaan" value="Tidak Bekerja"> Tidak Bekerja</label>
+      <p>*Untuk Bekerja Sendiri sahaja</p>
+      <input type="text" placeholder="Jenis Kerja Sendiri">
+      <p>*Untuk Tidak Bekerja sahaja</p>
+      <input type="text" placeholder="Sebab Tidak Bekerja">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(9)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step11" style="display:none">
+      <h3>Sektor Pekerjaan</h3>
+      <label><input type="checkbox" name="sektor" value="Kerajaan"> Kerajaan</label>
+      <label><input type="checkbox" name="sektor" value="Swasta"> Swasta</label>
+      <label><input type="checkbox" name="sektor" value="Badan Berkanun"> Badan Berkanun</label>
+      <input type="text" placeholder="Jawatan">
+      <input type="text" placeholder="Nama Majikan">
+      <input type="text" placeholder="No. Telefon Majikan">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(10)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step12" style="display:none">
+      <h3>Sumber Pendapatan Bulanan</h3>
+      <label>Diri</label>
+      <input type="text" placeholder="RM">
+      <h4>Perbelanjaan Bulanan</h4>
+      <label>Perbelanjaan Makan Minum</label>
+      <input type="text" placeholder="RM">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(11)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step13" style="display:none">
+      <h3>Sebab Memohon Bantuan</h3>
+      <select>
+        <option>Sebab Memohon Bantuan</option>
+        <option>Kehilangan Pekerjaan</option>
+        <option>Kesihatan</option>
+        <option>Kos Sara Hidup</option>
+        <option>Lain-lain</option>
+      </select>
+      <input type="text" placeholder="Jelaskan sebab">
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="nextStepPenerima()">Teruskan</button>
+        <button onclick="backToStep(12)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step14" style="display:none">
+      <h3>Daftar</h3>
+      <p>Cipta akaun anda</p>
+
+      <input type="password" placeholder="Kata Laluan">
+      <input type="password" placeholder="Sahkan Kata Laluan">
+
+      <p style="font-size: 12px; color: red;">
+        *Pastikan kata laluan memenuhi syarat berikut:<br>
+        - Panjang kata laluan sekurang-kurangnya lapan (8) aksara<br>
+        - Mempunyai sekurang-kurangnya:<br>
+        - Satu (1) huruf kecil<br>
+        - Satu (1) huruf besar<br>
+        - Satu (1) nombor<br>
+        - Satu (1) simbol (!@#$%^&*, etc)<br>
+        - Tidak boleh mengandungi No. Kad Pengenalan
+      </p>
+
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onclick="handleDaftar()">Daftar</button>
+        <button onclick="backToStep(13)">Kembali</button>
+      </div>
+    </div>
+
+    <div id="signup-penerima-step15" style="display:none">
+      <h2>Tahniah!</h2>
+      <p>Pendaftaran Anda <strong>Berjaya.</strong></p>
+      <p>🎉</p>
+      <p><strong>Log Masuk Sekarang</strong></p>
+      <button onclick="ui.teleportTo('login-section')">Masuk</button>
+    </div>
+
+  </div>
+
+  <div id="penerima-dashboard" style="display:none">
+    <p>Nama: <span id="penerima-dash-nama"></span></p>
+    <p>No. KP: <span id="penerima-dash-ic"></span></p>
+    <button onclick="ui.showLatestActivityFund('status-penerima-dashboard')">Status</button>
+    <p id="status-penerima-dashboard"></p>
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+      <button onclick="blockchainModule.loadBlocks()">View Blockchain</button>
+      <button onclick="ui.teleportTo('permohonan-form')">Mohon Bantuan</button>
+    </div>
+  </div>
+
+  <div id="permohonan-form" style="display:none">
+    <h4>Mohon Bantuan</h4>
+    <textarea id="kegunaan" placeholder="Nyatakan kegunaan permohonan"></textarea>
+    <input type="number" id="amount" placeholder="Jumlah bantuan diperlukan (RM)">
+    <button onclick="blockchainModule.mohonBantuan()">Hantar Permohonan</button>
+    <button onclick="ui.teleportTo('penerima-dashboard')">Kembali</button>
+  </div>
+
+  <div id="donation-section" style="display:none">
+    <h3>Make a Donation</h3>
+    <input type="number" id="amount" placeholder="Amount (RM)">
+    <select id="fundType">
+      <option value="zakat">Zakat</option>
+      <option value="waqf">Waqf</option>
+    </select>
+    <select id="walletSelect">
+      <option value="Touch 'n Go">Touch 'n Go</option>
+      <option value="GrabPay">GrabPay</option>
+      <option value="Bank Transfer">Bank Transfer</option>
+      <option value="Crypto Wallet">Crypto Wallet</option>
+    </select>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="blockchainModule.donate()">Donate</button>
+      <button onclick="ui.showLatestActivityFund('status-donation-section')">Status</button>
+    </div>
+    <div style="margin-top: 10px;">
+      <p id="status-donation-section"></p>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="blockchainModule.loadBlocks()">View Blockchain</button>
+      <button onclick="blockchainModule.verifyChain()">Verify Blockchain</button>
+    </div>
+  </div>
+
+  <div id="logout-section" style="display:none">
+    <button onclick="authModule.logout()">Logout</button>
+  </div>
+
+  <div id="blocks"></div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/blockchain.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    window.addEventListener('load', () => {
+      const userCategory = document.getElementById('user-category');
+      const pendermaForm = document.getElementById('signup-penderma');
+
+      userCategory.addEventListener('change', () => {
+        const selected = userCategory.value;
+
+        if (selected === 'penderma') {
+          pendermaForm.style.display = 'block';
+          ui.showPenerimaStep(0); // hide both steps
+        } else if (selected === 'penerima') {
+          pendermaForm.style.display = 'none';
+          ui.showPenerimaStep(1); // show step 1 only
+        } else {
+          pendermaForm.style.display = 'none';
+          ui.showPenerimaStep(0);
+        }
+      });
+    });
+  </script>
+
+  <script>
+    let currentPenerimaStep = 1;
+
+    function nextStepPenerima() {
+      if (typeof ui !== 'undefined' && ui.showPenerimaStep) {
+        currentPenerimaStep++;
+        ui.showPenerimaStep(currentPenerimaStep);
+      }
+    }
+
+    function backToStep(step) {
+      currentPenerimaStep = step;
+      ui.showPenerimaStep(step);
+    }
+
+  </script>
+
+  <script>
+    async function handleDaftar() {
+      try {
+        const success = await authModule.registerPenerima();
+
+        if (success) {
+          currentPenerimaStep = 15;
+          ui.showPenerimaStep(15); // success screen
+        } else {
+          currentPenerimaStep = 14; // stay here so Kembali works!
+          alert("Pendaftaran gagal. Sila semak semula.");
+        }
+      } catch (err) {
+        console.error(err);
+        currentPenerimaStep = 14; // stay at the same step
+        alert("Ralat berlaku semasa pendaftaran.");
+      }
+    }
+
+  </script>
+
+
+</body>
+
+</html>
