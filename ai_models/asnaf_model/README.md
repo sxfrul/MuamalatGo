@@ -1,6 +1,6 @@
 # 🕌 Asnaf Classification & Priority Listing
 
-This project contains a Jupyter Notebook that builds and applies a machine learning model to classify and prioritize **asnaf** recipients based on synthetic data.
+The dataset used is based on synthetic data.
 
 ---
 
