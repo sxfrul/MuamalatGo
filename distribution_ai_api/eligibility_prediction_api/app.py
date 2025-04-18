@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import json
 from flask import Flask, request, jsonify
+from sklearn.preprocessing import OrdinalEncoder
 
 # Function for preprocessing
 def preprocessing(df):
@@ -137,22 +138,24 @@ def load_pkl_file(path, name):
 app = Flask(__name__)
 
 # Loading the pkl file
-model = load_pkl_file('eligibility_model.pkl', 'Model')
+eligibility_model = load_pkl_file('eligibility_model.pkl', 'Eligibility model')
 columns = load_pkl_file('columns.pkl', 'Columns')
 ordinal_encoder = load_pkl_file('ordinal_encoder.pkl', 'Ordinal encoder')
 categorical_data = load_pkl_file('categorical_data_columns.pkl', 'Categorical data columns')
+asnaf_model = load_pkl_file('asnaf_model.pkl', 'Asnaf model')
+asnaf_class_map = load_pkl_file('class_map.pkl', 'Asnaf class map')
 
 # Define a health check route
 @app.route('/')
 def home():
     # Simple check to see if the server is running and model loaded
-    status = "Model loaded successfully." if model else "Model loading failed. Check logs."
+    status = "Model loaded successfully." if eligibility_model else "Model loading failed. Check logs."
     return f"Flask server is running! {status}"
 
-# Define the prediction route
+# 4. Define the prediction route
 @app.route('/predict', methods=['POST'])
 def predict():
-    if model is None:
+    if eligibility_model is None:
         return jsonify({'error': 'Model is not loaded. Cannot make predictions.'}), 500
 
     if not request.is_json:
@@ -173,19 +176,27 @@ def predict():
         except Exception as e:
              return jsonify({'error': f'Error processing features: {e}'}), 400
 
-        # Make prediction
-        prediction = model.predict(test_data)
-        prediction_int = (prediction > 0.5).astype(int)
 
-        output = int(prediction_int[0])
-        print(f"Prediction: {output}")
+        # Make prediction
+        eligibility_prediction = eligibility_model.predict(test_data)
+        eligibility_prediction_int = (eligibility_prediction > 0.5).astype(int)
+        asnaf_prediction = asnaf_model.predict(test_data)
+        asnaf_prediction = asnaf_prediction.argmax(axis=1)
+        asnaf_class_names = [asnaf_class_map[i] for i in asnaf_prediction] # class_map is from the model training part
+
+        # Convert prediction to standard Python list/type for JSON serialization
+        # output = prediction.tolist() # Adjust if predict returns a single value
+        eligibility_output = int(eligibility_prediction_int[0])
+        print(f"Eligibility prediction: {eligibility_output}")
+        asnaf_output = str(asnaf_class_names[0])
+        print(f"Asnaf predition: {asnaf_output}")
 
         # Return the prediction as JSON
-        return jsonify({'prediction': output})
+        return jsonify({'eligibility': eligibility_output, 'asnaf': asnaf_output}) # Often predict returns an array, take the first element
 
     except Exception as e:
         print(f"Error during prediction: {e}")
-        traceback.print_exc() 
+        traceback.print_exc()
         return jsonify({'error': f'An error occurred during prediction: {str(e)}'}), 500
 
 # Run the Flask App
