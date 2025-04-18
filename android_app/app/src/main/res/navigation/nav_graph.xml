@@ -16,6 +16,11 @@
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
+        android:id="@+id/registerPendermaFragment"
+        android:name="com.example.muamalatgo.RegisterPendermaFragment"
+        android:label="Pendaftaran Penderma" />
+
+    <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.muamalatgo.SecondFragment"
         android:label="@string/second_fragment_label"

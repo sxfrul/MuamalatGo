@@ -1,0 +1,28 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/inputEmail" android:hint="Emel" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputPassword" android:hint="Kata Laluan" android:inputType="textPassword" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputNama" android:hint="Nama Pemohon/Institusi" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputNoKP" android:hint="No. K/P" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputPhone" android:hint="No. Telefon Bimbit" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputIncome" android:hint="Declared Income" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputSavings" android:hint="Savings" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputInvestment" android:hint="Investment (Stocks/Bonds)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputGold" android:hint="Gold (grams)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputProperty" android:hint="Property (number)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputProfession" android:hint="Profession" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputLocation" android:hint="Location" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputDonationFreq" android:hint="Donation Frequency" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/inputAvgDonation" android:hint="Average Donation Amount" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <Button android:id="@+id/btnRegisterPenderma" android:text="Daftar Penderma" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
