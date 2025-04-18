@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Approval System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:hover { background-color: #f5f5f5; }
+        button {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button.revoke {
+            background-color: #f44336;
+        }
+        .approved { background-color: #d4edda; }
+        .pending { background-color: #fff3cd; }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .approved .status-indicator { background-color: #28a745; }
+        .pending .status-indicator { background-color: #ffc107; }
+    </style>
+</head>
+<body>
+    <h1>Applicant Approval Dashboard</h1>
+    <table id="applicantsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Data will be populated automatically -->
+        </tbody>
+    </table>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script>
+        // Replace with your Firebase config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Real-time listener for applicants collection
+        function setupRealtimeUpdates() {
+            db.collection("applicants").onSnapshot((snapshot) => {
+                const tbody = document.getElementById("tableBody");
+                tbody.innerHTML = "";
+
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const row = document.createElement("tr");
+                    row.className = data.approved ? "approved" : "pending";
+                    
+                    row.innerHTML = `
+                        <td>${data.name || 'N/A'}</td>
+                        <td>${data.email || 'N/A'}</td>
+                        <td>${data.position || 'N/A'}</td>
+                        <td>
+                            <span class="status-indicator"></span>
+                            ${data.approved ? 'Approved' : 'Pending'}
+                        </td>
+                        <td>
+                            <button 
+                                class="${data.approved ? 'revoke' : ''}" 
+                                onclick="toggleApproval('${doc.id}', ${!data.approved})"
+                                ${data.approved ? 'title="Revoke Approval"' : 'title="Approve Applicant"'}
+                            >
+                                ${data.approved ? 'Revoke' : 'Approve'}
+                            </button>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+            });
+        }
+
+        // Toggle approval status
+        async function toggleApproval(applicantId, newStatus) {
+            try {
+                await db.collection("applicants").doc(applicantId).update({
+                    approved: newStatus,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                console.log(`Status updated to ${newStatus ? 'Approved' : 'Pending'}`);
+            } catch (error) {
+                console.error("Error updating status:", error);
+                alert("Error updating status. Please try again.");
+            }
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            setupRealtimeUpdates();
+        });
+    </script>
+</body>
+</html>
+
+<!--References from Deepseek-->
