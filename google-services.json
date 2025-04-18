@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "150330163152",
+    "project_id": "umhackathon-zakatapp-mvp",
+    "storage_bucket": "umhackathon-zakatapp-mvp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150330163152:android:b693bb958b0dedd12ac3d5",
+        "android_client_info": {
+          "package_name": "com.example.muamalatgo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNaSOujZTLQ2m8keQmuXYE02dtkY_D7FQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
