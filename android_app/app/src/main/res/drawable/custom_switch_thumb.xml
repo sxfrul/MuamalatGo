@@ -1,0 +1,11 @@
+<!-- res/drawable/custom_switch_thumb.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Thumb color (white or any color you like) -->
+    <solid android:color="#FFFFFF"/> <!-- White thumb -->
+
+    <!-- Rounded corners for the thumb -->
+    <corners android:radius="30dp"/> <!-- Rounded corners -->
+
+    <!-- Size of the thumb -->
+    <size android:width="40dp" android:height="40dp"/> <!-- Thumb size -->
+</shape>
