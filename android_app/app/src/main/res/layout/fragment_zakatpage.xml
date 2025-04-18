@@ -99,7 +99,7 @@
             <Button
                 android:id="@+id/zakatEmasPerakButton"
                 style="@style/ZakatButton"
-                android:text="Zakat Emas & Perak" />
+                android:text="Zakat Emas &amp; Perak" />
 
             <Button
                 android:id="@+id/zakatTernakanButton"
