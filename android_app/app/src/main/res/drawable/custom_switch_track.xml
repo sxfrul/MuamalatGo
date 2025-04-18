@@ -1,0 +1,11 @@
+<!-- res/drawable/custom_switch_track.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Track background color -->
+    <solid android:color="#D90F82"/> <!-- Light grey track -->
+
+    <!-- Rounded corners for the track -->
+    <corners android:radius="20dp"/>
+
+    <!-- Size of the track (height larger than thumb) -->
+    <size android:height="10dp"/> <!-- Track height -->
+</shape>
