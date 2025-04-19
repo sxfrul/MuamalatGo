@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.view.View
 import androidx.core.widget.addTextChangedListener
+import com.example.muamalatgo.backend.Setpassword
 
 class Signup_donor1 : AppCompatActivity() {
 
@@ -97,6 +98,6 @@ class Signup_donor1 : AppCompatActivity() {
         val pendapatan = findViewById<EditText>(R.id.editTextText7).text.toString().trim()
 
         // Enable or disable the "teruskanButton" based on form completion
-        findViewById<Button>(R.id.button2).isEnabled = nome.isNotEmpty() && emel.isNotEmpty() && nokp.isNotEmpty() && phone.isNotEmpty() && pendapatan.isNotEmpty()
+        findViewById<Button>(R.id.button2).isEnabled = nama.isNotEmpty() && emel.isNotEmpty() && nokp.isNotEmpty() && phone.isNotEmpty() && pendapatan.isNotEmpty()
     }
 }

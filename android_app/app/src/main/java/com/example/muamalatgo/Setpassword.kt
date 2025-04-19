@@ -6,6 +6,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.muamalatgo.Completesignup
+import com.example.muamalatgo.MainActivity
 import com.example.muamalatgo.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -64,8 +66,11 @@ class Setpassword : AppCompatActivity() {
                             firestore.collection("Penderma").document(uid).set(donorData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
-                                    startActivity(Intent(this, MainActivity::class.java))
-                                    finish()
+
+                                    // After successful registration, navigate to Completesignup activity
+                                    val intent = Intent(this, Completesignup::class.java)
+                                    startActivity(intent)
+                                    finish()  // Close the current activity (Setpassword)
                                 }
                                 .addOnFailureListener { e ->
                                     Toast.makeText(this, "Gagal simpan ke Firestore: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -77,6 +82,7 @@ class Setpassword : AppCompatActivity() {
                         Toast.makeText(this, "Pendaftaran gagal: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }
+
         }
     }
 }

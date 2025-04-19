@@ -43,7 +43,7 @@
             android:name=".Completesignup"
             android:exported="false" />
         <activity
-            android:name=".Setpassword"
+            android:name=".backend.Setpassword"
             android:exported="false" />
         <activity
             android:name=".Signup_receiver3"
