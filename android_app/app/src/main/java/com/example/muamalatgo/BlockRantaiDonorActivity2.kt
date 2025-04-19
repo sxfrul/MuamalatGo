@@ -12,14 +12,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.Toast
 
-class BlockRantaiDonorActivity : AppCompatActivity() {
+class BlockRantaiDonorActivity2 : AppCompatActivity() {
     private lateinit var oneBlockContainer: LinearLayout
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_blokrantai_donor)
+        setContentView(R.layout.fragment_blokrantai_rec)
 
         oneBlockContainer = findViewById(R.id.oneBlockContainer)
         bottomNav = findViewById(R.id.bottomNavigation)
@@ -33,7 +33,7 @@ class BlockRantaiDonorActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> {
                     Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, HomepageDonorActivity::class.java))
+                    startActivity(Intent(this, HomepageReceiverActivity::class.java))
                     true
                 }
                 R.id.nav_history -> {

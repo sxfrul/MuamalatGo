@@ -2,41 +2,21 @@ package com.example.muamalatgo
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class PaymentPageActivity : AppCompatActivity() {
-    private lateinit var container: ConstraintLayout
-
+class BantuanPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_payment)
+        setContentView(R.layout.fragment_bantuan)
 
-        container = findViewById(R.id.innerConstraintLayout)
-        val ewalletImage = findViewById<ImageView>(R.id.ewalletImage)
-        val fpxImage = findViewById<ImageView>(R.id.fpxImage)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-
-        val redirectToPayment12 = {
-            val intent = Intent(this, PaymentPageActivity12::class.java)
-            startActivity(intent)
-            finish() // Optional: close this screen
-        }
-
-        ewalletImage.setOnClickListener {
-            redirectToPayment12()
-        }
-
-        fpxImage.setOnClickListener {
-            redirectToPayment12()
-        }
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    startActivity(Intent(this, HomepageDonorActivity::class.java))
+                    startActivity(Intent(this, HomepageReceiverActivity::class.java))
                     true
                 }
 //                R.id.nav_history -> {

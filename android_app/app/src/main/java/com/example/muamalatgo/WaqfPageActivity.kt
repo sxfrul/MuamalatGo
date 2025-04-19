@@ -8,11 +8,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.content.Intent
 import android.widget.Button
 
-class SadaqahPageActivity : AppCompatActivity() {
+class WaqfPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.fragment_sadaqahpage)
+        setContentView(R.layout.fragment_waqfpage)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 

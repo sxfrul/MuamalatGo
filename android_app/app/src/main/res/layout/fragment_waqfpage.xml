@@ -134,12 +134,13 @@
                         android:layout_marginBottom="8dp"/>
 
                     <Button
+                        android:id="@+id/buttonDerma1"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:text="Derma"
                         android:backgroundTint="#B5F7F6"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"/>
+                        android:text="Derma"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -198,6 +199,7 @@
                         android:layout_marginBottom="8dp"/>
 
                     <Button
+                        android:id="@+id/buttonDerma2"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
                         android:text="Derma"
@@ -262,6 +264,7 @@
                         android:layout_marginBottom="8dp"/>
 
                     <Button
+                        android:id="@+id/buttonDerma3"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
                         android:text="Derma"
@@ -326,6 +329,7 @@
                         android:layout_marginBottom="8dp"/>
 
                     <Button
+                        android:id="@+id/buttonDerma4"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
                         android:text="Derma"

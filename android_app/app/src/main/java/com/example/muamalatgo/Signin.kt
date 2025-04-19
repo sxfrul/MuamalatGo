@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.EditText
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.Toast
 
 class SigninPenderma : AppCompatActivity() {
@@ -23,6 +24,13 @@ class SigninPenderma : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_signin)
+        val dafterButton = findViewById<FrameLayout>(R.id.daftarPendermaFrame)
+        val SignUpIntent = Intent(this, Signup_donor1::class.java)
+
+        dafterButton.setOnClickListener {
+            startActivity(SignUpIntent)
+            finish()
+        }
 
         // Handle edge insets (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

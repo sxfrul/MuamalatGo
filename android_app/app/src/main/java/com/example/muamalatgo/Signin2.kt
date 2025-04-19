@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.EditText
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.Toast
 
 class SigninPenerima : AppCompatActivity() {
@@ -22,7 +23,14 @@ class SigninPenerima : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_signin2)
+        setContentView(R.layout.activity_signin3)
+        val dafterButton = findViewById<FrameLayout>(R.id.daftarPenerimaFrame)
+        val SignUpIntent = Intent(this, Signup_rec1::class.java)
+
+        dafterButton.setOnClickListener {
+            startActivity(SignUpIntent)
+            finish()
+        }
 
         // Handle edge insets (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -52,12 +60,14 @@ class SigninPenerima : AppCompatActivity() {
             }
         }
 
-        buttonPenerima.setOnClickListener {
+        // 🟦 When Penderma button clicked: (stay on this activity or show toast)
+        buttonPenderma.setOnClickListener {
             Toast.makeText(this, "Anda sedang dalam skrin Penderma", Toast.LENGTH_SHORT).show()
         }
 
-        buttonPenderma.setOnClickListener {
-            val intent = Intent(this, SigninPenderma::class.java)
+        // 🟨 When Penerima button clicked: move to SigninPenerima activity
+        buttonPenerima.setOnClickListener {
+            val intent = Intent(this, SigninPenerima::class.java)
             startActivity(intent)
         }
     }
@@ -67,6 +77,9 @@ class SigninPenerima : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, HomepageReceiverActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                 }

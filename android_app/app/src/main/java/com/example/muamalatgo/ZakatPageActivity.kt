@@ -57,10 +57,10 @@ class ZakatPageActivity : AppCompatActivity() {
                     startActivity(Intent(this, HomepageDonorActivity::class.java))
                     true
                 }
-                R.id.nav_history -> {
-                    startActivity(Intent(this, BlockRantaiDonorActivity::class.java))
-                    true
-                }
+//                R.id.nav_history -> {
+//                    startActivity(Intent(this, BlockRantaiDonorActivity::class.java))
+//                    true
+//                }
                 R.id.nav_settings -> {
                     startActivity(Intent(this, SettingsDonorActivity::class.java))
                     true

@@ -46,19 +46,6 @@
         app:strokeColor="@color/pink"
         app:strokeWidth="2dp" />
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/daftar_sekarang"
-        android:textColor="@color/darkpink"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.651"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804" />
 
     <TextView
         android:id="@+id/textView28"

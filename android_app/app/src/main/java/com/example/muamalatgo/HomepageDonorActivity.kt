@@ -29,7 +29,7 @@ class HomepageDonorActivity : AppCompatActivity() {
 
         val userId = auth.currentUser?.uid
         if (userId != null) {
-            firestore.collection("penderma").document(userId).get()
+            firestore.collection("Penderma").document(userId).get()
                 .addOnSuccessListener { document ->
                     if (document != null && document.exists()) {
                         val nama = document.getString("nama") ?: "Nama Tidak Ditemui"

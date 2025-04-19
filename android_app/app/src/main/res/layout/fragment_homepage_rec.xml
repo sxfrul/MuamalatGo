@@ -59,14 +59,15 @@
             android:id="@+id/headerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="MUHAMMAD ALI"
-            android:textSize="32sp"
             android:textColor="#000000"
+            android:textSize="32sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/topRoundedRectangle"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="40dp" />
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/topRoundedRectangle" />
 
         <TextView
             android:id="@+id/descriptionText"

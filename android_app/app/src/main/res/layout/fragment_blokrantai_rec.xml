@@ -32,23 +32,22 @@
             android:id="@+id/topRoundedRectangle"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/rounded_lightblue_rectangle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="1"
             app:layout_constraintHeight_percent="1"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="1" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="#FF8BC6"
+            android:background="@drawable/rounded_lightblue_rectangle" />
 
         <TextView
             android:id="@+id/headerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PAYMENT GO"
+            android:text="Blok Rantai"
             android:textSize="30sp"
-            android:textColor="#008C8B"
+            android:textColor="#8C005B"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="@id/topRoundedRectangle"
             app:layout_constraintBottom_toBottomOf="@id/topRoundedRectangle"
@@ -57,57 +56,43 @@
             app:layout_constraintVertical_bias="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/iconsConstraintLayout"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="@id/guidelineSecondSection"
-        app:layout_constraintBottom_toBottomOf="@id/guidelineThirdSection"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
-            android:id="@+id/buttonContainer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.8">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/iconsConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <!-- First Input: Kegunaan -->
-            <EditText
-                android:id="@+id/PaymentFundType"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/oneBlockContainer"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Fund Type"
-                android:inputType="text"
-                android:padding="12dp"
-                android:background="#A5FCFB" />
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.8">
 
-            <!-- Second Input: Jumlah Mata Wang -->
-            <EditText
-                android:id="@+id/editTextJumlah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Jumlah Mata Wang"
-                android:inputType="numberDecimal"
-                android:padding="12dp"
-                android:layout_marginTop="16dp"
-                android:background="#A5FCFB" />
+                <ImageView
+                    android:id="@+id/topImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/blockchain_dashboard"
+                    android:scaleType="centerCrop" />
 
-            <Button
-                android:id="@+id/zakatTernakanButton"
-                style="@style/ZakatButton"
-                android:text="Hantar" />
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

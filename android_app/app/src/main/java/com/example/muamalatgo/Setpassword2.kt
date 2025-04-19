@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Setpassword : AppCompatActivity() {
+class Setpassword2 : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnRegister: Button
@@ -19,23 +19,23 @@ class Setpassword : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setpassword)
 
-        etEmail = findViewById(R.id.editTextText21)       // Now correctly treated as email field
-        etPassword = findViewById(R.id.editTextText22)    // Now treated as password
+        etEmail = findViewById(R.id.editTextText21)
+        etPassword = findViewById(R.id.editTextText22)
         btnRegister = findViewById(R.id.button7)
 
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        val donorData = intent.getSerializableExtra("donorData") as? HashMap<String, String>
-        if (donorData == null || donorData["emel"].isNullOrEmpty()) {
-            Toast.makeText(this, "Data pengguna tidak lengkap.", Toast.LENGTH_SHORT).show()
+        val receiverData = intent.getSerializableExtra("receiverData") as? HashMap<String, String>
+
+        if (receiverData == null || receiverData["emel"].isNullOrEmpty()) {
+            Toast.makeText(this, "Data penerima tidak lengkap.", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
-        // Pre-fill the email field
-        etEmail.setText(donorData["emel"])
-        etEmail.isEnabled = false  // Lock email input
+        etEmail.setText(receiverData["emel"])
+        etEmail.isEnabled = false
 
         btnRegister.setOnClickListener {
             val password = etPassword.text.toString()
@@ -45,14 +45,14 @@ class Setpassword : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val email = donorData["emel"]!!
+            val email = receiverData["emel"]!!
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val uid = firebaseAuth.currentUser?.uid
                         if (uid != null) {
-                            firestore.collection("Penderma").document(uid).set(donorData)
+                            firestore.collection("Penerima").document(uid).set(receiverData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
                                     startActivity(Intent(this, Completesignup::class.java))

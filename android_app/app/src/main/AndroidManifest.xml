@@ -13,46 +13,10 @@
         android:theme="@style/Theme.MuamalatGo"
         tools:targetApi="31">
         <activity
-            android:name=".Signup_receiver13"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver12"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver11"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver10"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver9"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver8"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver7"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver6"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver5"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver4"
-            android:exported="false" />
-        <activity
             android:name=".Completesignup"
             android:exported="false" />
         <activity
             android:name=".Setpassword"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver3"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver2"
             android:exported="false" />
         <activity
             android:name=".Onboarding"
@@ -67,6 +31,9 @@
             android:name=".SigninPenderma"
             android:exported="false" />
         <activity
+            android:name=".BantuanPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".SigninPenerima"
             android:exported="false" />
         <activity
@@ -76,10 +43,15 @@
             android:name=".Signup_receiver"
             android:exported="false" />
         <activity
-            android:name=".Signup_donor1"
+            android:name=".HomepageReceiverActivity"
             android:exported="false" />
         <activity
-            android:name=".Signup_receiver1"
+            android:name=".Setpassword2"
+            android:exported="false" />
+        <activity
+            android:name=".Signup_donor1"
+            android:exported="false" />
+        <activity android:name=".Signup_rec1"
             android:exported="false" />
         <activity
             android:name=".HomepageDonorActivity"
@@ -104,6 +76,9 @@
             android:exported="false"/>
         <activity
             android:name=".BlockRantaiDonorActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".BlockRantaiDonorActivity2"
             android:exported="false"/>
 
 
