@@ -18,7 +18,7 @@ const ASNAF_ORDER = ['Fakir', 'Miskin', 'Mualaf', 'Riqab', 'Gharim', 'Fisabilill
 function setupRealtimeUpdates() {
     // db.collection("Penerima").onSnapshot((snapshot) => {
     db.collection("Penerima")
-      .limit(10)
+      .limit(1)
       .get()
       .then((snapshot) => {
         const items = snapshot.docs.map(doc => ({
@@ -66,9 +66,14 @@ function renderRows(items){
         <td>${data["No. Telefon Bimbit"] || "N/A"}</td>
         <td>${data["Kelayakan"] || "N/A"}</td>
         <td>${data["Kategori Asnaf"] || "N/A"}</td>
+        <td>${data["Pemalsuan"] || "N/A"}</td>
         <td>
-            <span class="status-indicator"></span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <span 
+              style="width: 10px; height: 10px; border-radius: 50%; background-color: ${data.approved ? 'green' : 'gray'}; display: inline-block;">
+            </span>
             ${data.approved ? "Approved" : "Pending"}
+          </span>
         </td>
         <td>
             <button 
@@ -138,28 +143,85 @@ const DETAIL_FIELDS = [
     { label: "Tarikh Permohonan",              key: "Tarikh" },
 ];
 
-function buildDetailHTML(extra) {
-  return DETAIL_FIELDS
-    .map(f => {
-      const value = extra[f.key];
-
-      // Special formatting for "Maklumat Isi Rumah"
-      if (f.key === "Maklumat Isi Rumah" && Array.isArray(value)) {
-        const rumahHTML = value.map((item, index) => {
-          const details = Object.entries(item)
-            .map(([k, v]) => `<strong>${k}:</strong> ${v}`)
-            .join("<br>");
-          return `<div style="margin-bottom: 1em;"><u>Ahli Isi Rumah ${index + 1}</u><br>${details}</div>`;
-        }).join("");
-        return `<strong>${f.label}:</strong><br>${rumahHTML}`;
-      }
-
-      // Default for other fields
-      return `<strong>${f.label}:</strong> ${value || "–"}<br>`;
-    })
-    .join("");
+function escapeHTML(str) {
+  const element = document.createElement('div');
+  if (str) {
+    element.innerText = str;
+    return element.innerHTML;
+  }
+  return '';
 }
 
+const FIELDS_AS_TABLE = ["Maklumat Isi Rumah", "Sumber Pendapatan Bulanan", "Perbelanjaan Bulanan"]
+
+function escapeHTML(str) {
+  return String(str).replace(/[&<>"']/g, ch => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[ch]);
+}
+
+function buildDetailHTML(extra) {
+  return DETAIL_FIELDS.map(f => {
+    const raw = extra[f.key];
+    let parsed;
+    
+    // Only try JSON.parse if it looks like a JSON string
+    if (typeof raw === "string") {
+      const t = raw.trim();
+      if (t.startsWith("{") || t.startsWith("[")) {
+        try {
+          parsed = JSON.parse(t);
+        } catch (e) {
+          console.warn(`Couldn’t parse ${f.key} JSON`, e);
+        }
+      }
+    }
+
+    // Case A: parsed is an array → full, dynamic‑column table
+    if (Array.isArray(parsed)) {
+      if (parsed.length === 0) {
+        return `<strong>${f.label}:</strong> Tiada data<br>`;
+      }
+      const headers = Object.keys(parsed[0]);
+      const rows = parsed.map(row =>
+        `<tr>${headers.map(h => `<td>${escapeHTML(row[h] ?? "")}</td>`).join("")}</tr>`
+      ).join("");
+      return `
+        <strong>${f.label}:</strong><br>
+        <table style="width:100%;border:1px solid #ccc;border-collapse:collapse;margin:.5em 0;">
+          <thead><tr>${headers.map(h => `<th>${escapeHTML(h)}</th>`).join("")}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+    }
+
+    // Case B: parsed is an object → two‑column key→value table
+    if (parsed && typeof parsed === "object") {
+      const rows = Object.entries(parsed).map(
+        ([k, v]) => `
+          <tr>
+            <td style="padding:4px;border:1px solid #ccc;">${escapeHTML(k)}</td>
+            <td style="padding:4px;border:1px solid #ccc;">${escapeHTML(String(v))}</td>
+          </tr>`
+      ).join("");
+      return `
+        <strong>${f.label}:</strong><br>
+        <table style="width:50%;border:1px solid #ccc;border-collapse:collapse;margin:.5em 0;">
+          <thead><tr><th>Perkara</th><th>Nilai</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+    }
+
+    // Fallback: simple value (including dates, strings, numbers, etc.)
+    const safe = raw == null ? "–" : escapeHTML(String(raw));
+    return `<strong>${f.label}:</strong> ${safe}<br>`;
+  }).join("");
+}
 
 document.getElementById("tableBody").addEventListener("click", (e) => {
     const btn = e.target.closest(".expand-btn");
