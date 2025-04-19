@@ -25,7 +25,7 @@ const ASNAF_ORDER = [
 // Real-time listener
 function setupRealtimeUpdates() {
   db.collection("PenerimaAPI")
-    .limit(20)
+    
     .onSnapshot((snapshot) => {
       const items = snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -61,8 +61,6 @@ function renderRows(items) {
   items.forEach((item) => {
     const data = item.data;
     const row = document.createElement("tr");
-    //row.className = data.approved ? "approved" : "pending";
-
     row.innerHTML = `
         <td>${data["Nama Pemohon/Institusi"] || "N/A"}</td>
         <td>${data["No. K/P (baru)/Polis/Tentera/No. Pasport"] || "N/A"}</td>
@@ -74,8 +72,8 @@ function renderRows(items) {
             ? "Tak Layak"
             : "N/A"
         }</td>
-        <td>${data["Asnaf Ramalan"] || "N/A"}</td>
-        <td>${data["Pemalsuan Ramalan"] || "N/A"}</td>
+        <td>${data["Asnaf Ramalan"] || "N/A"}</td>  
+        <td>${data["Penipuan Ramalan"] === 1 ? "Penipuan Dikesan" : data["Penipuan Ramalan"] === 0 ? "Tiada Penipuan" : "N/A"}</td>
         <td>${data["Kegunaan"] || "N/A"}</td>
         <td>${data["JumlahMataWang"] || "N/A"}</td>
         <td>
