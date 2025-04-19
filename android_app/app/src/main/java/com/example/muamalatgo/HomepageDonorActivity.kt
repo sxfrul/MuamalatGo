@@ -78,8 +78,6 @@ class HomepageDonorActivity : AppCompatActivity() {
         val statusButton: Button = findViewById(R.id.statusButton)
         statusButton.setOnClickListener {
             Toast.makeText(this, "Status button pressed — implement later", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, SadaqahPageActivity::class.java)
-            startActivity(intent)
         }
 
         bottomNav.setOnItemSelectedListener { item ->

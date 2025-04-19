@@ -50,7 +50,7 @@ class BlockRantaiRecActivity : AppCompatActivity() {
 
     private fun fetchBlocksFromFirestore() {
         firestore.collection("blockchain")
-            .orderBy("index", com.google.firebase.firestore.Query.Direction.ASCENDING) // 🔼 ASCENDING by index
+            .orderBy("index", com.google.firebase.firestore.Query.Direction.DESCENDING) // 🔼 ASCENDING by index
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
