@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.Toast
 
-class SigninPenerima : AppCompatActivity() {
+class SigninPenderma : AppCompatActivity() {
 
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
@@ -23,9 +23,9 @@ class SigninPenerima : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_signin3)
-        val dafterButton = findViewById<FrameLayout>(R.id.daftarPenerimaFrame)
-        val SignUpIntent = Intent(this, Signup_rec1::class.java)
+        setContentView(R.layout.activity_signin)
+        val dafterButton = findViewById<FrameLayout>(R.id.daftarPendermaFrame)
+        val SignUpIntent = Intent(this, SignupDonor2::class.java)
 
         dafterButton.setOnClickListener {
             startActivity(SignUpIntent)
@@ -42,7 +42,7 @@ class SigninPenerima : AppCompatActivity() {
         // Bind views
         emailInput = findViewById(R.id.emailInputLogin)
         passwordInput = findViewById(R.id.passwordInputLogin)
-        loginButton = findViewById(R.id.buttonLoginPenerima)
+        loginButton = findViewById(R.id.buttonLoginPenderma)
         buttonPenderma = findViewById(R.id.buttonPenderma)
         buttonPenerima = findViewById(R.id.buttonPenerima)
 
@@ -61,13 +61,13 @@ class SigninPenerima : AppCompatActivity() {
         }
 
         // 🟦 When Penderma button clicked: (stay on this activity or show toast)
-        buttonPenerima.setOnClickListener {
-            Toast.makeText(this, "Anda sedang dalam skrin Penerima", Toast.LENGTH_SHORT).show()
+        buttonPenderma.setOnClickListener {
+            Toast.makeText(this, "Anda sedang dalam skrin Penderma", Toast.LENGTH_SHORT).show()
         }
 
         // 🟨 When Penerima button clicked: move to SigninPenerima activity
-        buttonPenderma.setOnClickListener {
-            val intent = Intent(this, SigninPenderma::class.java)
+        buttonPenerima.setOnClickListener {
+            val intent = Intent(this, SigninPenerima::class.java)
             startActivity(intent)
         }
     }
@@ -77,7 +77,7 @@ class SigninPenerima : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, HomepageReceiverActivity::class.java)
+                    val intent = Intent(this, HomepageDonorActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {

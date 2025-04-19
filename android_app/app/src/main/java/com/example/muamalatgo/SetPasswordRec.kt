@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Setpassword2 : AppCompatActivity() {
+class SetPasswordRec : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnRegister: Button
@@ -56,7 +56,7 @@ class Setpassword2 : AppCompatActivity() {
                             firestore.collection("PenerimaAPI").document(uid).set(receiverData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
-                                    startActivity(Intent(this, Completesignup::class.java))
+                                    startActivity(Intent(this, CompleteSignUp::class.java))
                                     finish()
                                 }
                                 .addOnFailureListener { e ->

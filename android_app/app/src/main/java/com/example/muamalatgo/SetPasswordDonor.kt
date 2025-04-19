@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Setpassword : AppCompatActivity() {
+class SetPasswordDonor : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnRegister: Button
@@ -55,7 +55,7 @@ class Setpassword : AppCompatActivity() {
                             firestore.collection("Penderma").document(uid).set(donorData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
-                                    startActivity(Intent(this, Completesignup::class.java))
+                                    startActivity(Intent(this, CompleteSignUp::class.java))
                                     finish()
                                 }
                                 .addOnFailureListener { e ->

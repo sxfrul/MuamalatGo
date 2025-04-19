@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.Toast
 
-class BlockRantaiDonorActivity2 : AppCompatActivity() {
+class BlockRantaiRecActivity : AppCompatActivity() {
     private lateinit var oneBlockContainer: LinearLayout
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var firestore: FirebaseFirestore
@@ -32,16 +32,14 @@ class BlockRantaiDonorActivity2 : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, HomepageReceiverActivity::class.java))
                     true
                 }
                 R.id.nav_history -> {
-                    Toast.makeText(this, "History clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_settings -> {
-                    Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, SettingsRecActivity::class.java))
                     true
                 }
                 else -> false

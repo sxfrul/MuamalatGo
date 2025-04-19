@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 
-class Signup_donor1 : AppCompatActivity() {
+class SignupDonor2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +58,7 @@ class Signup_donor1 : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val intent = Intent(this, Setpassword::class.java)
+            val intent = Intent(this, SetPasswordDonor::class.java)
             intent.putExtra("donorData", donorData)
             startActivity(intent)
         }

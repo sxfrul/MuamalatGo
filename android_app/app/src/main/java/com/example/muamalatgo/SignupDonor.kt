@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class Signup_receiver : AppCompatActivity() {
+class SignupDonor : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_signup_receiver)
+        setContentView(R.layout.activity_signup_donor)
+
+        // Handle window insets for edge-to-edge layout
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -20,19 +22,19 @@ class Signup_receiver : AppCompatActivity() {
         }
 
         // 🔵 Reference to the buttons
-        val penerimaButton = findViewById<Button>(R.id.button18) // "Penerima"
-        val teruskanButton = findViewById<Button>(R.id.button16) // "Teruskan"
+        val penerimaButton = findViewById<Button>(R.id.button_penerima) // "Penerima"
+        val teruskanButton = findViewById<Button>(R.id.button3) // "Teruskan"
 
         // 🔁 Switch to Signup_receiver.kt when "Penerima" is clicked
         penerimaButton.setOnClickListener {
-            val intent = Intent(this, Signup_receiver::class.java)
+            val intent = Intent(this, SignupRec::class.java)
             startActivity(intent)
             finish()
         }
 
         // ✅ Go to Signup_donor1.kt when "Teruskan" is clicked
         teruskanButton.setOnClickListener {
-            val intent = Intent(this, Signup_rec1::class.java)
+            val intent = Intent(this, SignupDonor2::class.java)
             startActivity(intent)
         }
     }
