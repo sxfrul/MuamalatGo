@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:scrollbars=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -21,55 +20,105 @@
         app:layout_constraintVertical_bias="0.428">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="450dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/rounded_border"
-                android:orientation="vertical"
-                android:padding="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="541dp">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:scrollbarSize="3dp"/>
 
-                <EditText
-                    android:layout_width="330dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/edittext_bg"
-                    android:hint="RM"
-                    android:inputType="numberDecimal"
-                    android:padding="12dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextNumberDecimal2"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@drawable/edittext_bg"
-                    android:hint="RM"
-                    android:inputType="numberDecimal"
-                    android:layout_constraintTop_toBottomof="@id/"
-                    android:padding="12dp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="450dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/rounded_border"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:layout_editor_absoluteY="541dp">
 
+                    <EditText
+                        android:id="@+id/signuprm"
+                        android:layout_width="330dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/edittext_bg"
+                        android:hint="Nama Penuh"
+                        android:padding="12dp" />
+
+                    <EditText
+                        android:id="@+id/signupnokp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/edittext_bg"
+                        android:hint="No. K\P"
+                        android:padding="12dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <EditText
+                        android:id="@+id/signupnokp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/edittext_bg"
+                        android:hint="Hubungan"
+                        android:padding="12dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <EditText
+                        android:id="@+id/signupnokp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/edittext_bg"
+                        android:hint="Umur"
+                        android:padding="12dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner6"
+                        android:layout_width="328dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/rectangular_corner2"
+                        android:paddingLeft="12dp"
+                        android:prompt="Status"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.497"
+                        android:layout_marginTop="8dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner7"
+                        android:layout_width="328dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/rectangular_corner2"
+                        android:paddingLeft="12dp"
+                        android:prompt="Kesihatan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.497"
+                        android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_marginEnd="12dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="12dp"
-                tools:layout_editor_absoluteX="230dp"
-                tools:layout_editor_absoluteY="605dp"></LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/textView102"
+    </LinearLayout>
+<TextView
+android:id="@+id/textView102"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
@@ -84,26 +133,26 @@
         app:layout_constraintVertical_bias="0.105" />
 
     <TextView
-        android:id="@+id/textView103"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/istok_web_bold"
-        android:text="@string/cipta_akaun"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177" />
+    android:id="@+id/textView103"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/istok_web_bold"
+    android:text="@string/cipta_akaun"
+    android:textColor="@color/black"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.177" />
 
     <TextView
-        android:id="@+id/textView104"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kembali"
-        android:textColor="@color/darkblue"
+    android:id="@+id/textView104"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kembali"
+    android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,4 +204,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.899" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
