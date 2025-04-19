@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 package com.example.muamalatgo.utils
+=======
+package com.example.muamalatgo.backend.com.example.muamalatgo.utils
+>>>>>>> Stashed changes
 
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -18,4 +22,8 @@ object ApiClient {
 
         client.newCall(request).enqueue(callback)
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

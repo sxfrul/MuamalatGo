@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package com.example.muamalatgo.backend.auth
 
 import com.google.firebase.auth.FirebaseAuth
@@ -37,3 +38,25 @@ object RegisterPenderma {
             }
     }
 }
+=======
+package my.app
+
+import my.app.FirebaseInit.auth
+import com.google.firebase.auth.UserRecord
+
+fun registerPenderma(
+    email: String,
+    password: String,
+    pendermaData: Map<String, Any>
+) {
+    val request = UserRecord.CreateRequest()
+        .setEmail(email)
+        .setPassword(password)
+
+    val userRecord = auth.createUser(request)
+    val uid = userRecord.uid
+
+    firestore.collection("Penderma").document(uid).set(pendermaData)
+    println("Penderma registered: $uid")
+}
+>>>>>>> Stashed changes

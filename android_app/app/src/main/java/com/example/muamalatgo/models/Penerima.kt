@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 package com.example.muamalatgo.models
+=======
+package com.example.muamalatgo.backend.com.example.muamalatgo.models
+>>>>>>> Stashed changes
 
 data class Penerima(
     val kategoriAsnaf: String = "",
