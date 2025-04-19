@@ -10,6 +10,8 @@ import android.widget.Spinner
 import android.widget.Toast
 import android.view.View
 import android.widget.AdapterView
+import android.content.Intent
+import android.widget.TextView
 
 
 class Signup_donor1 : AppCompatActivity() {
@@ -42,6 +44,18 @@ class Signup_donor1 : AppCompatActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+        val kembaliText = findViewById<TextView>(R.id.textView17)
+        val logMasukText = findViewById<TextView>(R.id.textView15)
 
+        kembaliText.setOnClickListener {
+            val intent = Intent(this, Signup_donor::class.java)
+            startActivity(intent)
+
+        }
+
+        logMasukText.setOnClickListener {
+            val intent = Intent(this, Signin::class.java)
+            startActivity(intent)
+        }
     }
 }
