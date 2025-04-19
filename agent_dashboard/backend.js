@@ -16,36 +16,34 @@ const ASNAF_ORDER = ['Fakir', 'Miskin', 'Mualaf', 'Riqab', 'Gharim', 'Fisabilill
 
 // Real-time listener
 function setupRealtimeUpdates() {
-    // db.collection("Penerima").onSnapshot((snapshot) => {
-    db.collection("Penerima")
-      .limit(1)
-      .get()
-      .then((snapshot) => {
-        const items = snapshot.docs.map(doc => ({
-          id: doc.id,
-          data: doc.data()
-        }));
-    
-    // Sorting logic (Chatgpt Referred)
-    items.sort((a, b) => {
-      const grpA = a.data["Kategori Asnaf"] || "";
-      const grpB = b.data["Kategori Asnaf"] || "";
-      const idxA = ASNAF_ORDER.indexOf(grpA);
-      const idxB = ASNAF_ORDER.indexOf(grpB);
+  db.collection("PenerimaAPI")
+    .limit(2)
+    .onSnapshot((snapshot) => {
+      const items = snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      }));
 
-      const orderA = idxA === -1 ? ASNAF_ORDER.length : idxA;
-      const orderB = idxB === -1 ? ASNAF_ORDER.length : idxB;
+      // Sorting logic
+      items.sort((a, b) => {
+        const grpA = a.data["Kategori Asnaf"] || "";
+        const grpB = b.data["Kategori Asnaf"] || "";
+        const idxA = ASNAF_ORDER.indexOf(grpA);
+        const idxB = ASNAF_ORDER.indexOf(grpB);
 
-      if (orderA !== orderB) return orderA - orderB;
+        const orderA = idxA === -1 ? ASNAF_ORDER.length : idxA;
+        const orderB = idxB === -1 ? ASNAF_ORDER.length : idxB;
 
-      // Same Asnaf group → compare dates
-      const dateA = new Date(a.data["Tarikh"]);
-      const dateB = new Date(b.data["Tarikh"]);
-      return dateA - dateB;  // Earlier date first
+        if (orderA !== orderB) return orderA - orderB;
+
+        // Same Asnaf group → compare dates
+        const dateA = new Date(a.data["Tarikh"]);
+        const dateB = new Date(b.data["Tarikh"]);
+        return dateA - dateB;
+      });
+
+      renderRows(items);
     });
-
-    renderRows(items);
-  });
 }
 
 function renderRows(items){
@@ -154,16 +152,6 @@ function escapeHTML(str) {
 
 const FIELDS_AS_TABLE = ["Maklumat Isi Rumah", "Sumber Pendapatan Bulanan", "Perbelanjaan Bulanan"]
 
-function escapeHTML(str) {
-  return String(str).replace(/[&<>"']/g, ch => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[ch]);
-}
-
 function buildDetailHTML(extra) {
   return DETAIL_FIELDS.map(f => {
     const raw = extra[f.key];
@@ -218,7 +206,7 @@ function buildDetailHTML(extra) {
     }
 
     // Fallback: simple value (including dates, strings, numbers, etc.)
-    const safe = raw == null ? "–" : escapeHTML(String(raw));
+    const safe = (raw === null || raw === "") ? "–" : escapeHTML(String(raw));
     return `<strong>${f.label}:</strong> ${safe}<br>`;
   }).join("");
 }
@@ -237,10 +225,12 @@ document.getElementById("tableBody").addEventListener("click", (e) => {
       btn.textContent = "Kembangkan ▼";
     } else {
       // open it: fetch extra data (if needed) and insert a new row
-      db.collection("Penerima")
+      db.collection("PenerimaAPI")
         .doc(docId)
         .get()
         .then(docSnap => {
+          console.log("Full doc:", docSnap.data());
+          console.log(docId)
           const extra = docSnap.data();
           const detailTr = document.createElement("tr");
           detailTr.classList.add("detail-row");
@@ -254,7 +244,7 @@ document.getElementById("tableBody").addEventListener("click", (e) => {
 // Toggle approval status
 async function toggleApproval(applicantId, newStatus) {
     try {
-        await db.collection("applicants").doc(applicantId).update({
+        await db.collection("PenerimaAPI").doc(applicantId).update({
             approved: newStatus,
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
