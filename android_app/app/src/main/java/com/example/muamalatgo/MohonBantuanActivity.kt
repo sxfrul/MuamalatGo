@@ -121,14 +121,10 @@ class MohonBantuanActivity : AppCompatActivity() {
                                 }
                             }
                         }
-
                     } catch (e: Exception) {
                         Log.w("MohonBantuan", "Skipping key: $key due to error", e)
                     }
                 }
-
-
-
 
                 userData.put("Kegunaan", kegunaan)
                 userData.put("JumlahMataWang", jumlah)
@@ -139,34 +135,57 @@ class MohonBantuanActivity : AppCompatActivity() {
                     userData.toString()
                 )
 
-                val request = Request.Builder()
+                // --- First API call: eligibility + asnaf ---
+                val eligibilityRequest = Request.Builder()
                     .url(eligibilityUrl)
                     .addHeader("Authorization", "Bearer $hfToken")
                     .post(body)
                     .build()
 
-                val response = client.newCall(request).execute()
-                val responseString = response.body?.string()?.trim() ?: ""
-                Log.d("MohonBantuan", "📩 Raw API response: $responseString")
+                val response1 = client.newCall(eligibilityRequest).execute()
+                val responseString1 = response1.body?.string()?.trim() ?: ""
+                Log.d("MohonBantuan", "📩 Raw response from eligibility API: $responseString1")
 
                 try {
-                    val json = JSONObject(responseString)
-                    Log.d("MohonBantuan", "✅ Parsed API JSON: $json")
-
-                    val eligibility = if (json.has("eligibility")) json.getInt("eligibility") else -1
-                    val asnaf = if (json.has("asnaf")) json.getString("asnaf") else "Unknown"
+                    val json1 = JSONObject(responseString1)
+                    val eligibility = json1.optInt("eligibility", -1)
+                    val asnaf = json1.optString("asnaf", "Unknown")
 
                     userData.put("Kelayakan Ramalan", eligibility)
                     userData.put("Asnaf Ramalan", asnaf)
 
-                    Log.d("MohonBantuan", "✅ Stored prediction: eligibility=$eligibility, asnaf=$asnaf")
-
-
+                    Log.d("MohonBantuan", "✅ Stored eligibility=$eligibility, asnaf=$asnaf")
                 } catch (e: Exception) {
-                    Log.e("MohonBantuan", "❌ Failed to parse API response", e)
-                    userData.put("prediction", responseString)
+                    Log.e("MohonBantuan", "❌ Failed to parse eligibility API", e)
+                    userData.put("Eligibility API Raw", responseString1)
                 }
 
+                // --- Second API call: fraud prediction ---
+                val fraudRequest = Request.Builder()
+                    .url("https://yxho-muamalatgo-fraud-ai.hf.space/predict")
+                    .addHeader("Authorization", "Bearer $hfToken")
+                    .post(body)
+                    .build()
+
+                val response2 = client.newCall(fraudRequest).execute()
+                val responseString2 = response2.body?.string()?.trim() ?: ""
+                Log.d("MohonBantuan", "📩 Raw response from fraud API: $responseString2")
+
+                try {
+                    val json2 = JSONObject(responseString2)
+                    val fraud = try {
+                        json2.getInt("fraud")
+                    } catch (e: Exception) {
+                        Log.e("MohonBantuan", "❌ Invalid fraud value format", e)
+                        -1
+                    }
+                    userData.put("Penipuan Ramalan", fraud)  // ✅ Explicitly add clean int
+
+                    Log.d("MohonBantuan", "✅ Stored fraud prediction: $fraud")
+                } catch (e: Exception) {
+                    Log.e("MohonBantuan", "❌ Failed to parse fraud API", e)
+                    userData.put("Fraud API Raw", responseString2)
+                }
 
                 userData.put("uid", uid)
                 userData.put("timestamp", System.currentTimeMillis())
@@ -180,7 +199,6 @@ class MohonBantuanActivity : AppCompatActivity() {
                             finish()
                         }
                     }
-
                     .addOnFailureListener { e ->
                         runOnUiThread {
                             Toast.makeText(this@MohonBantuanActivity, "Gagal simpan data: ${e.message}", Toast.LENGTH_LONG).show()
@@ -195,6 +213,7 @@ class MohonBantuanActivity : AppCompatActivity() {
             }
         }
     }
+
 
     // ✅ Safely convert nested JSON structures to Map<String, Any> or List<Any>
     private fun JSONObject.toMap(): Map<String, Any?> {

@@ -31,7 +31,7 @@
         android:layout_height="67dp"
         android:backgroundTint="#E41616"
         android:fontFamily="@font/istok_web"
-        android:text="insani"
+        android:text="Teruskan"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
