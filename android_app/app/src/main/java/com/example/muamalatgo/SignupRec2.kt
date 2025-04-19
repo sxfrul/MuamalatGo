@@ -72,7 +72,7 @@ class SignupRec2 : AppCompatActivity() {
                 "No. Telefon Rumah/Waris" to "",
                 "Pejabat (Kakitangan Berhubungan)" to "LZS Cawangan Klang",
                 "Pekerjaan" to "Tidak Bekerja",
-                "Perbelanjaan Bulanan" to """{"Perbelanjaan Makan Minum": 3500.00, "Sewa/Ansuran Rumah": 10.00, "Persekolahan Anak-anak": 0, "Pengangkutan/Tambang Bas Sekolah": 0, "Bil Elektrik, Bil Air dan Lain-lain": 0.50, "Kos Rawatan/Sakit Kronik": 9999.99, "Kos Penjagaan Anak": 0}""",
+                "Perbelanjaan Bulanan" to """{"Perbelanjaan Makan Minum": 9000.00, "Sewa/Ansuran Rumah": 11110.00, "Persekolahan Anak-anak": 11110, "Pengangkutan/Tambang Bas Sekolah": 11110, "Bil Elektrik, Bil Air dan Lain-lain": 1110.50, "Kos Rawatan/Sakit Kronik": 119999.99, "Kos Penjagaan Anak": 0}""",
                 "Poligami" to "",
                 "Poskod" to 41000,
                 "Asnaf" to "Fisabilillah",
