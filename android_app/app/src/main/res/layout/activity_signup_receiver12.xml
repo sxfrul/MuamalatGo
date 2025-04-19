@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Sumber Pendapatan Bulanan"
+        android:text="@string/sumberpendapatanbulanan"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Perbelanjaan Bulanan"
+        android:text="@string/perbelanjaanbulanan"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +70,7 @@
         android:id="@+id/textView94"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,15 +157,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Diri"
+                    android:text="@string/diri"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="12dp" />
             </LinearLayout>
@@ -184,15 +185,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Isteri/Suami"
+                    android:text="@string/isterisuami"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -211,15 +213,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Ibu Bapa/Penjaga"
+                    android:text="@string/ibubapapenjaga"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -238,15 +241,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Pencen/PERKESO"
+                    android:text="@string/pencen"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -265,15 +269,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Sumbangan Anak-Anak"
+                    android:text="@string/sumbangananak"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -292,15 +297,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Lain-Lain\n(JKM &amp; Sebagainya)"
+                    android:text="@string/lainjkm"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -319,15 +325,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Lain-Lain Pendapatan\n(Rumah Sewa)"
+                    android:text="@string/lainrumah"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -346,15 +353,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Pendapatan tanggungan yang\ntinggal bersama"
+                    android:text="@string/tanggungan"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -404,15 +412,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Perbelanjaan Makan Minum"
+                    android:text="@string/makanminum"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="12dp" />
             </LinearLayout>
@@ -431,15 +440,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Sewa/Ansuran Rumah"
+                    android:text="@string/sewa"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -458,15 +468,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Persekolahan Anak-anak"
+                    android:text=""
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -485,15 +496,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Pengangkutan/Tambang Bas Sekolah"
+                    android:text="@string/pengakutan"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -512,15 +524,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Bil Elektrik, Bil Air &amp; Lain-Lain"
+                    android:text="@string/bil"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -539,15 +552,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Kos Rawatan/Sakit Kronik"
+                    android:text="@string/kosrawatan"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>
@@ -566,15 +580,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="Kos Penjagaan Anak"
+                    android:text="@string/kosanak"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:importantForAutofill="no"
                     android:background="@drawable/edittext_bg"
-                    android:hint="RM"
+                    android:hint="@string/RM"
                     android:inputType="numberDecimal"
                     android:padding="10dp" />
             </LinearLayout>

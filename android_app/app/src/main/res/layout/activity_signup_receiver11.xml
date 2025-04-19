@@ -10,13 +10,15 @@
 
     <EditText
         android:id="@+id/editTextText39"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Jawatan"
+        android:hint="@string/jawatan"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -26,13 +28,15 @@
 
     <EditText
         android:id="@+id/editTextText40"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Nama Majikan"
+        android:hint="@string/namamajikan"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -42,13 +46,15 @@
 
     <EditText
         android:id="@+id/editTextText41"
+        android:autofillHints="phone"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="No. Telefon Majikan"
+        android:hint="@string/notelefonmajikan"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -75,7 +81,7 @@
         android:id="@+id/textView87"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Sektor Pekerjaan"
+        android:text="@string/sektorpekerjaan"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -135,21 +141,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Kerajaan"
+            android:text="@string/kerajaan"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Swasta"
+            android:text="@string/swasta"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Badan Berkanun"
+            android:text="@string/badanberkanun"
             android:textSize="15sp" />
 
     </LinearLayout>

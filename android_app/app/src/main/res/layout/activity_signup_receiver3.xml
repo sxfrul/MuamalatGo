@@ -10,13 +10,17 @@
 
     <EditText
         android:id="@+id/editTextText15"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Alamat"
+        android:hint="@string/alamat"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -26,12 +30,14 @@
 
     <EditText
         android:id="@+id/editTextText16"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:ems="10"
-        android:hint="Daerah"
+        android:hint="@string/daerah"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,12 +48,14 @@
 
     <EditText
         android:id="@+id/editTextText17"
+        android:autofillHints="postalCode"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:ems="10"
-        android:hint="Poskod"
+        android:hint="@string/poskod"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,12 +66,14 @@
 
     <EditText
         android:id="@+id/editTextText18"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:ems="10"
-        android:hint="Bandar"
+        android:hint="@string/bandar"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,12 +84,14 @@
 
     <EditText
         android:id="@+id/editTextText20"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:ems="10"
-        android:hint="Negeri"
+        android:hint="@string/negeri"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,12 +102,14 @@
 
     <EditText
         android:id="@+id/editTextText19"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:ems="10"
-        android:hint="Kariah"
+        android:hint="@string/kariah"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,7 +166,7 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

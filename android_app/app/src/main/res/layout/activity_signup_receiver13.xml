@@ -13,7 +13,8 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner2"
         android:paddingLeft="12dp"
-        android:prompt="Sebab Mohon Bantuan"
+        android:paddingRight="12dp"
+        android:prompt="@string/sebabmohonbantuan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -23,6 +24,7 @@
 
     <ImageView
         android:id="@+id/imageView8"
+        android:contentDescription="@string/spinner"
         android:layout_width="25dp"
         android:layout_height="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,13 +37,15 @@
 
     <EditText
         android:id="@+id/editTextText42"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Jelaskan sebab"
+        android:hint="@string/jelaskansebab"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -83,7 +87,7 @@
         android:id="@+id/textView99"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

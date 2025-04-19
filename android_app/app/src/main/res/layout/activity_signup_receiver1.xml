@@ -16,7 +16,8 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner2"
         android:paddingLeft="12dp"
-        android:prompt="Status"
+        android:paddingRight="12dp"
+        android:prompt="@string/status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -26,6 +27,7 @@
 
     <ImageView
         android:id="@+id/imageView5"
+        android:contentDescription="@string/spinner"
         android:layout_width="25dp"
         android:layout_height="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,35 +59,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Salinan No. K/P"
+            android:text="@string/salinannokp"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Penyata Bank"
+            android:text="@string/penyatabank"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Sijil-sijil berkenaan"
+            android:text="@string/sijilsijilberkenaan"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Salinan bil utiliti"
+            android:text="@string/salinanbilutiliti"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Penyataan KWSP"
+            android:text="@string/PenyataanKWSP"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -138,7 +140,7 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -168,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Dokumen Lapiran Utama"
+        android:text="@string/dokumenlapiranutama"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -183,7 +185,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Kategori Pemohon"
+        android:text="@string/kategoripemohon"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -226,15 +228,15 @@
 
         <RadioButton
             android:id="@+id/radioButton4"
-            android:layout_width="158dp"
-            android:layout_height="48dp"
-            android:text="Institusi" />
+            android:layout_width="148dp"
+            android:layout_height="50dp"
+            android:text="@string/institusi" />
 
         <RadioButton
             android:id="@+id/radioButton2"
-            android:layout_width="140dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Individual" />
+            android:text="@string/individu" />
     </LinearLayout>
 
 

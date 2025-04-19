@@ -15,7 +15,8 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner2"
         android:paddingLeft="12dp"
-        android:prompt="Kesihatan"
+        android:paddingRight="12dp"
+        android:prompt="@string/kesihatan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -25,6 +26,7 @@
 
     <ImageView
         android:id="@+id/imageView7"
+        android:contentDescription="@string/spinner"
         android:layout_width="25dp"
         android:layout_height="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +41,7 @@
         android:id="@+id/textView57"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,21 +102,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Akaun"
+            android:text="@string/akaun"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Cek"
+            android:text="@string/cek"
             android:textSize="15sp" />
 
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/black"
-            android:text="Tunai"
+            android:text="@string/tunai"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -124,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Cara Pembayaran"
+        android:text="@string/carapembayaran"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="*Sebab Pembayaran Tunai"
+        android:text="@string/sebabpembayaran"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,13 +153,15 @@
 
     <EditText
         android:id="@+id/editTextText26"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Lain-lain, Nyatakan"
+        android:hint="@string/lainlain"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -167,13 +171,15 @@
 
     <EditText
         android:id="@+id/editTextText29"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Jelaskan sebab"
+        android:hint="@string/jelaskansebab"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

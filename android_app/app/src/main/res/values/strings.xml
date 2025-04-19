@@ -25,6 +25,127 @@
     - Sekurang-kurangnya satu (1) huruf kecil;\n
     - Sekurang-kurangnya satu (1) nombor;\n
     - Sekurang-kurangnya satu (1) simbol (! @#$^*&amp;); dan\n
-    - Tidak boleh menggunakan ID pengguna/Kad Pengenalan.</string>\
+    - Tidak boleh menggunakan ID pengguna/Kad Pengenalan.</string>
+
+    <string name="tahniah">Tahniah!</string>
+    <string name="berjaya">Pendaftaran Anda Berjaya.</string>
+    <string name="logmasuk">Log masuk sekarang</string>
+
+    <string name="sahkan">Sahkan Kata Laluan</string>
+    <string name="katalaluan">Kata Laluan</string>
+    <string name="emel">E-mel</string>
+
+    <string name="nama">Nama</string>
+    <string name="nokp">No. K/P</string>
+    <string name="notelefonbimbit">No. Telefon Bimbit</string>
+    <string name="jeniskadpengenalan">Jenis Kad Pengenalan</string>
+    <string name="jumlahpendapatan">Jumlah Pendapatan</string>
+    <string name="kembali">Kembali</string>
+    <string name="spinner">Spinner</string>
+
+    <string name="salinannokp">Salinan No. K/P</string>
+    <string name="penyatabank">Penyata Bank</string>
+    <string name="sijilsijilberkenaan">Sijil-sijil berkenaan</string>
+    <string name="salinanbilutiliti">Salinan bil utiliti</string>
+    <string name="PenyataanKWSP">Penyataan KWSP</string>
+
+    <string name="individu">Individu</string>
+    <string name="institusi">Institusi</string>
+    <string name="status">Status</string>
+    <string name="dokumenlapiranutama">Dokumen Lapiran Utama</string>
+    <string name="kategoripemohon">Kategori Pemohon</string>
+
+    <string name="bekerja">Bekerja</string>
+    <string name="bekerjasendiri">Bekerja Sendiri</string>
+    <string name="tidakbekerja">Tidak bekerja</string>
+    <string name="pekerjaan">Pekerjaan</string>
+    <string name="bekerjasendirisahaja">*Untuk Bekerja Sendiri sahaja</string>
+    <string name="tidakbekerjasahaja">*Untuk Tidak Bekerja sahaja</string>
+    <string name="sebabtidakbekerja">Sebab Tidak Bekerja</string>
+    <string name="jeniskerjasendiri">Jenis Kerja Sendiri</string>
+
+    <string name="kerajaan">Kerajaan</string>
+    <string name="swasta">Swasta</string>
+    <string name="badanberkanun">Badan Berkanun</string>
+    <string name="jawatan">Jawatan</string>
+    <string name="namamajikan">Nama Majikan</string>
+    <string name="notelefonmajikan">No. Telefon Majikan</string>
+    <string name="sektorpekerjaan">No. Telefon Majikan</string>
+    <string name="RM">RM</string>
+    <string name="diri">Diri</string>
+    <string name="isterisuami">Isteri/Suami</string>
+    <string name="ibubapapenjaga">Ibu Bapa/Penjaga</string>
+    <string name="pencen">Pencen/PERKESO</string>
+    <string name="sumbangananak">Sumbangan Anak-Anak</string>
+    <string name="lainjkm">Lain-Lain\n(JKM &amp; Sebagainya)</string>
+    <string name="lainrumah">Lain-Lain\n(Rumah Sewa)</string>
+    <string name="tanggungan">Pendapatan tanggungan yang\ntinggal bersama</string>
+    <string name="makanminum">Perbelanjaan Makan Minum</string>
+    <string name="sewa">Sewa/Ansuran Rumah</string>
+    <string name="persekolahan">Persekolahan Anak-anak</string>
+    <string name="pengakutan">Pengangkutan/Tambang Bas Sekolah</string>
+    <string name="bil">Bil Elektrik, Bil Air &amp; Lain-Lain</string>
+    <string name="kosrawatan">Kos Rawatan/Sakit Kronik</string>
+    <string name="perbelanjaanbulanan">Perbelanjaan Bulanan</string>
+    <string name="sumberpendapatanbulanan">Sumber Pendapatan Bulanan</string>
+    <string name="kosanak">Kos Penjagaan Anak</string>
+
+    <string name="jelaskansebab">Jelaskan sebab</string>
+    <string name="sebabmohonbantuan">Sebab Mohon Bantuan</string>
+
+    <string name="namapemohon">Name Pemohon/Institusi</string>
+
+    <string name="alamat">Alamat</string>
+    <string name="poskod">Poskod</string>
+    <string name="kariah">Kariah</string>
+    <string name="daerah">Daerah</string>
+    <string name="bandar">Bandar</string>
+    <string name="negeri">Negeri</string>
+
+    <string name="applogo">Applogo</string>
+    <string name="appcircle">Appcircle</string>
+
+    <string name="warganegara">Warganegara</string>
+    <string name="tarikhlahir">Tarikh Lahir</string>
+    <string name="namawaris">Nama Waris</string>
+    <string name="notelefronrumah">No. Telefon Rumah/Waris</string>
+    <string name="tahunmenetapdinegeri">Tahun Menetap di Negeri</string>
+    <string name="jantina">Jantina</string>
+
+    <string name="akaun">Akaun</string>
+    <string name="cek">Cek</string>
+    <string name="tunai">Tunai</string>
+    <string name="lainlain">Lain-lain, Nyatakan</string>
+    <string name="kesihatan">Kesihatan</string>
+
+    <string name="carapembayaran">Cara Pembayaran</string>
+    <string name="sebabpembayaran">*Sebab Pembayaran Tunai</string>
+    <string name="tidak">Tidak</string>
+    <string name="ya">Ya</string>
+    <string name="tarikhmasukislam">Tarikh Masuk Islam</string>
+    <string name="nokpsimati">No. K/P Si Mati</string>
+    <string name="namasimati">Nama Si Mati</string>
+    <string name="n2">2</string>
+    <string name="n3">3</string>
+    <string name="n4">4</string>
+    <string name="poligami">Poligami</string>
+    <string name="fakirmiskin">Untuk Fakir Miskin Sahaja</string>
+    <string name="muallaf">*Untuk Muallaf sahaja</string>
+    <string name="hubungankekeluargaanzakat">Hubungan kekeluargaan dengan kakitangan Lembaga Zakat?</string>
+
+    <string name="namakakitangan">Nama Kakitangan</string>
+    <string name="pejabatkakitanganberhubungan">Pejabat Kakitangan Berhubungan</string>
+    <string name="hubungan">Hubungan</string>
+    <string name="jawatankakitangan">Jawatan Kakitangan Berhubungan</string>
+
+    <string name="simpan">Simpan</string>
+    <string name="maklumatisirumah">Maklumat Isi Rumah</string>
+
+    <string name="pendapatanbersih">Pendaptan Bersih</string>
+    <string name="namapenuh">Nama Penuh</string>
+    <string name="umur">Umur</string>
+    <string name="pendapatankasar">Pendapatan Kasar</string>
+    <string name="tambahlogo">Plus Sign</string>
+
 
 </resources>

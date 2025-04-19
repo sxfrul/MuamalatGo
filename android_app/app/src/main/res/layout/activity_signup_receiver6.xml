@@ -13,7 +13,7 @@
         android:layout_height="67dp"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/istok_web"
-        android:text="Tidak"
+        android:text="@string/tidak"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -30,7 +30,7 @@
         android:layout_height="67dp"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/istok_web"
-        android:text="Ya"
+        android:text="@string/ya"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -61,31 +61,33 @@
             android:id="@+id/radioButton4"
             android:layout_width="100dp"
             android:layout_height="48dp"
-            android:text="2" />
+            android:text="@string/n2" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="100dp"
             android:layout_height="48dp"
-            android:text="3" />
+
+            android:text="@string/n3" />
 
         <RadioButton
             android:id="@+id/radioButton"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="4" />
+            android:text="@string/n4" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/editTextText34"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Tarikh Masuk Islam"
-        android:inputType="text"
+        android:hint="@string/tarikhmasukislam"
+        android:inputType="date"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -95,13 +97,15 @@
 
     <EditText
         android:id="@+id/editTextText35"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="No. K/P Si Mati"
-        android:inputType="text"
+        android:hint="@string/nokpsimati"
+        android:inputType="number"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -111,13 +115,15 @@
 
     <EditText
         android:id="@+id/editTextText36"
+        android:importantForAutofill="no"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner1"
         android:ems="10"
-        android:hint="Nama Si Mati"
+        android:hint="@string/namasimati"
         android:inputType="text"
         android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -172,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Poligami"
+        android:text="@string/poligami"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -187,7 +193,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Untuk Fakir Miskin Sahaja"
+        android:text="@string/fakirmiskin"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -202,7 +208,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
-        android:text="*Untuk Muallaf sahaja"
+        android:text="@string/muallaf"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -217,7 +223,7 @@
         android:layout_width="300dp"
         android:layout_height="42dp"
         android:fontFamily="@font/istok_web_bold"
-        android:text="Hubungan kekeluargaan dengan kakitangan Lembaga Zakat?"
+        android:text="@string/hubungankekeluargaanzakat"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -247,7 +253,7 @@
         android:id="@+id/textView73"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="@string/kembali"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
