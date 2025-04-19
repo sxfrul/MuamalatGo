@@ -1,7 +1,6 @@
 package com.example.muamalatgo
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -21,26 +20,27 @@ class SadaqahPageActivity : AppCompatActivity() {
         val dermaButton3 = findViewById<Button>(R.id.buttonDerma3)
         val dermaButton4 = findViewById<Button>(R.id.buttonDerma4)
 
-        val paymentIntent = Intent(this, PaymentPageActivity::class.java)
+        fun goToPaymentWithType(fundType: String) {
+            val intent = Intent(this, PaymentMethodActivity::class.java)
+            intent.putExtra("FUND_TYPE", fundType)
+            startActivity(intent)
+            finish()
+        }
 
         dermaButton1.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("sadaqah")
         }
 
         dermaButton2.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("sadaqah")
         }
 
         dermaButton3.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("sadaqah")
         }
 
         dermaButton4.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("sadaqah")
         }
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -53,11 +53,11 @@ class SadaqahPageActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_settings -> {
+                    startActivity(Intent(this, SettingsDonorActivity::class.java))
                     true
                 }
                 else -> false
             }
         }
     }
-
 }

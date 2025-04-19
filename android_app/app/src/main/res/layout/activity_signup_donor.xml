@@ -6,7 +6,7 @@
     android:background="@drawable/gradient_backgroundcolor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signup_donor">
+    tools:context=".SignupDonor">
 
     <Button
         android:id="@+id/button3"

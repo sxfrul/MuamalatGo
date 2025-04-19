@@ -13,10 +13,10 @@
         android:theme="@style/Theme.MuamalatGo"
         tools:targetApi="31">
         <activity
-            android:name=".Completesignup"
+            android:name=".CompleteSignUp"
             android:exported="false" />
         <activity
-            android:name=".Setpassword"
+            android:name=".SetPasswordDonor"
             android:exported="false" />
         <activity
             android:name=".Onboarding"
@@ -40,21 +40,21 @@
             android:name=".SigninPenerima"
             android:exported="false" />
         <activity
-            android:name=".Signup_donor"
+            android:name=".SignupDonor"
             android:exported="false" />
         <activity
-            android:name=".Signup_receiver"
+            android:name=".SignupRec"
             android:exported="false" />
         <activity
             android:name=".HomepageReceiverActivity"
             android:exported="false" />
         <activity
-            android:name=".Setpassword2"
+            android:name=".SetPasswordRec"
             android:exported="false" />
         <activity
-            android:name=".Signup_donor1"
+            android:name=".SignupDonor2"
             android:exported="false" />
-        <activity android:name=".Signup_rec1"
+        <activity android:name=".SignupRec2"
             android:exported="false" />
         <activity
             android:name=".HomepageDonorActivity"
@@ -69,23 +69,27 @@
             android:name=".ZakatPageActivity"
             android:exported="false"/>
         <activity
-            android:name=".PaymentPageActivity"
+            android:name=".PaymentMethodActivity"
             android:exported="false"/>
         <activity
             android:name=".PaymentPageActivity2"
             android:exported="false"/>
         <activity
-            android:name=".PaymentPageActivity12"
+            android:name=".PaymentPageActivity"
             android:exported="false"/>
         <activity
             android:name=".BlockRantaiDonorActivity"
             android:exported="false"/>
         <activity
-            android:name=".BlockRantaiDonorActivity2"
+            android:name=".BlockRantaiRecActivity"
             android:exported="false"/>
         <activity
             android:name=".WaqfPageActivity"
             android:exported="false"/>
+        <activity
+            android:name=".SettingsRecActivity"
+            android:exported="false"/>
+
 
 
 

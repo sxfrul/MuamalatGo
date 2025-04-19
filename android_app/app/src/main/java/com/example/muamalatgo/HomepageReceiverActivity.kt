@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,6 +21,7 @@ class HomepageReceiverActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_homepage_rec)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
         fullnameText = findViewById(R.id.headerText)
         nokpText = findViewById(R.id.descriptionText)
@@ -60,7 +62,7 @@ class HomepageReceiverActivity : AppCompatActivity() {
         val bantuanIcon: ImageView = findViewById(R.id.icon2)
 
         blockchainIcon.setOnClickListener {
-            val intent = Intent(this, BlockRantaiDonorActivity2::class.java)
+            val intent = Intent(this, BlockRantaiRecActivity::class.java)
             startActivity(intent)
         }
 
@@ -72,8 +74,23 @@ class HomepageReceiverActivity : AppCompatActivity() {
         val statusButton: Button = findViewById(R.id.statusButton)
         statusButton.setOnClickListener {
             Toast.makeText(this, "Not Implemented", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, SadaqahPageActivity::class.java)
-            startActivity(intent)
+        }
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, HomepageReceiverActivity::class.java))
+                    true
+                }
+                R.id.nav_history -> {
+                    true
+                }
+                R.id.nav_settings -> {
+                    startActivity(Intent(this, SettingsRecActivity::class.java))
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

@@ -19,36 +19,36 @@ class ZakatPageActivity : AppCompatActivity() {
         val zakatTernakanButton = findViewById<Button>(R.id.zakatTernakanButton)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        val paymentIntent = Intent(this, PaymentPageActivity::class.java)
+        // Shortcut method to create and send intent
+        fun goToPaymentWithType(fundType: String) {
+            val intent = Intent(this, PaymentMethodActivity::class.java)
+            intent.putExtra("FUND_TYPE", fundType)
+            startActivity(intent)
+            finish()
+        }
 
         zakatPendapatanButton.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("zakat")
         }
 
         zakatPerniagaanButton.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("zakat")
         }
 
         zakatPertanianButton.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("zakat")
         }
 
         zakatSimpananButton.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("zakat")
         }
 
         zakatEmasPerakButton.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("zakat")
         }
 
         zakatTernakanButton.setOnClickListener {
-            startActivity(paymentIntent)
-            finish()
+            goToPaymentWithType("zakat")
         }
 
         bottomNav.setOnItemSelectedListener { item ->

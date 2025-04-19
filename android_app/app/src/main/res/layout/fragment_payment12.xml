@@ -46,7 +46,7 @@
             android:id="@+id/headerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PAYMENT GO"
+            android:text="Gerbang Pembayaran"
             android:textSize="30sp"
             android:textColor="#008C8B"
             android:textStyle="bold"
