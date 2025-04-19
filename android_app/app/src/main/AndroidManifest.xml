@@ -55,7 +55,7 @@
             android:name=".Signup_receiver2"
             android:exported="false" />
         <activity
-            android:name=".HomepageDonorActivity"
+            android:name=".Onboarding"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -81,6 +81,18 @@
         <activity
             android:name=".Signup_receiver1"
             android:exported="false" />
+        <activity
+            android:name=".HomepageDonorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SadaqahPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsDonorActivity"
+            android:exported="false" />
+
+
+
     </application>
 
 </manifest>

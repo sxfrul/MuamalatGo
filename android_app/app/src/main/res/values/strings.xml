@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MuamalatGo</string>
+    <string name="app_name">Muamalat</string>
     <string name="action_settings">Settings</string>
 
     <!-- Navigation Fragment Labels -->
@@ -32,9 +32,9 @@
     <!-- Misc Info -->
     <string name="password_requirement">Kata laluan mesti sekurang-kurangnya 8 aksara</string>
     <string name="cipta_akaun_sebagai">Cipta akaun sebagai</string>
-    <string name="ho_and_friends">Ho dan rakan-rakan</string>
-    <string name="powered_by">Dikuasakan oleh</string>
-    <string name="app_name2">MuamalatGo Versi 2</string>
+    <string name="ho_and_friends">Ho and Friends</string>
+    <string name="powered_by">Powered by</string>
+    <string name="app_name2">Go</string>
 
     <!-- Form Fields -->
     <string name="jenis_kad_pengenalan">Jenis Kad Pengenalan</string>

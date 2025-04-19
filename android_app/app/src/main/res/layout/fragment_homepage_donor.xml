@@ -2,14 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".HomepageDonorActivity">
+    android:layout_height="match_parent">
 
-    <!-- Guidelines for layout positioning -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineSecondSection"
         android:layout_width="0dp"
@@ -38,7 +33,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.47" />
 
-    <!-- Top Section with Header Info -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/innerConstraintLayout"
         android:layout_width="0dp"
@@ -61,12 +55,12 @@
             android:background="@drawable/rounded_gradient_rectangle" />
 
         <TextView
-            android:id="@+id/headerText"
+            android:id="@+id/fullnamePenderma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MUHAMMAD ALI"
             android:textSize="32sp"
-            android:textColor="@color/black"
+            android:textColor="#000000"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="@id/topRoundedRectangle"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,17 +68,17 @@
             android:layout_marginTop="40dp" />
 
         <TextView
-            android:id="@+id/descriptionText"
+            android:id="@+id/nokpPenderma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="980212-10-8920"
             android:textStyle="bold"
             android:alpha="0.5"
             android:textSize="24sp"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/headerText"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@id/fullnamePenderma"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
             android:id="@+id/statusButton"
@@ -97,14 +91,13 @@
             android:backgroundTint="#B5F7F6"
             android:padding="12dp"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintTop_toBottomOf="@id/descriptionText"
+            app:layout_constraintTop_toBottomOf="@id/nokpPenderma"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Middle Icons Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/iconsConstraintLayout"
         android:layout_width="0dp"
@@ -125,13 +118,105 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center">
 
-            <!-- Icon blocks -->
-            <!-- [Repeated blocks shortened for brevity] -->
+            <!-- Icon 1 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/Blockchain"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/blockchain_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blockchain"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Icon 2 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iconZakat"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/zakat_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zakat"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Icon 3 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iconMasjid"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/masjid_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masjid"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Icon 4 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iconDonasi"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/donate_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Donasi"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Footer Scrollable Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -149,7 +234,7 @@
             <View
                 android:id="@+id/topRoundedRectangle2"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:background="@drawable/rounded_grey_rectangle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -164,10 +249,10 @@
                 android:textStyle="bold"
                 android:alpha="0.5"
                 android:textSize="20sp"
-                android:textColor="@color/black"
+                android:textColor="#000000"
                 android:padding="30dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
                 android:id="@+id/news1"
@@ -209,6 +294,6 @@
         app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
