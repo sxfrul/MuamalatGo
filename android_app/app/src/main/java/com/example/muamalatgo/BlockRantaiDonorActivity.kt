@@ -50,6 +50,7 @@ class BlockRantaiDonorActivity : AppCompatActivity() {
 
     private fun fetchBlocksFromFirestore() {
         firestore.collection("blockchain")
+            .orderBy("index", com.google.firebase.firestore.Query.Direction.DESCENDING) // 🔼 ASCENDING by index
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -65,6 +66,7 @@ class BlockRantaiDonorActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to fetch blockchain data: ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
+
 
     private fun addBlockToLayout(fundType: String, amount: Double, hash: String, prevHash: String) {
         val inflater = LayoutInflater.from(this)

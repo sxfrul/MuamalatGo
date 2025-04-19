@@ -56,7 +56,7 @@ class SetPasswordRec : AppCompatActivity() {
                             firestore.collection("PenerimaAPI").document(uid).set(receiverData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
-                                    startActivity(Intent(this, CompleteSignUp::class.java))
+                                    startActivity(Intent(this, CompleteSignUpRec::class.java))
                                     finish()
                                 }
                                 .addOnFailureListener { e ->

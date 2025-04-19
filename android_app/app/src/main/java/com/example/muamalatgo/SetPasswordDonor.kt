@@ -55,7 +55,7 @@ class SetPasswordDonor : AppCompatActivity() {
                             firestore.collection("Penderma").document(uid).set(donorData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
-                                    startActivity(Intent(this, CompleteSignUp::class.java))
+                                    startActivity(Intent(this, CompleteSignUpDonor::class.java))
                                     finish()
                                 }
                                 .addOnFailureListener { e ->
