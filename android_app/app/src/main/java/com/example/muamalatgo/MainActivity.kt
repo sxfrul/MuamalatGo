@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.example.muamalatgo.backend.com.example.muamalatgo.backend.firebase.FirebaseInit
 import com.example.muamalatgo.databinding.ActivityMainBinding
 import com.example.muamalatgo.FirebaseInit
 
