@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Approval System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">
+        <img src="logo.png" alt="MuamalatGo" width="150">
+        <h1>MuamalatGo Applicant Approval Dashboard</h1>
+    </div>
+    <table id="applicantsTable">
+        <thead>
+            <tr>
+                <tr>
+                    <th>Nama Pemohon</th>
+                    <th>No. K/P</th>
+                    <th>No. Telefon</th>
+                    <th>Kelayakan untuk menerima</th>
+                    <th>Kategori Asnaf</th>
+                    <th>Pemalsuan</th>
+                    <th>Kegunaan</th>
+                    <th>Jumlah Mata Wang Dipohon</th>
+                    <th>Kelulusan</th>
+                    <th>Tindakan</th>
+                    <th>Maklumat lain</th>
+                </tr>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr data-details>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="backend.js"></script>
+</body>
+</html>
+
+<!--References from Deepseek-->
