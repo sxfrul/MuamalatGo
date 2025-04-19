@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.content.Intent
 import android.widget.TextView
+import android.widget.*
 
 
 class Signup_donor1 : AppCompatActivity() {
@@ -19,6 +20,49 @@ class Signup_donor1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_signup_donor1)
+
+        // Initialize views
+        val namaEditText = findViewById<EditText>(R.id.editTextText3)
+        val emelEditText = findViewById<EditText>(R.id.editTextText4)
+        val nokpEditText = findViewById<EditText>(R.id.editTextText5)
+        val phoneEditText = findViewById<EditText>(R.id.editTextText6)
+        val pendapatanEditText = findViewById<EditText>(R.id.editTextText7)
+        val kadPengenalanSpinner = findViewById<Spinner>(R.id.spinner)
+        val teruskanButton = findViewById<Button>(R.id.button2)
+
+        // Spinner setup (optional if already set in XML)
+        val kadPengenalanOptions = arrayOf("Warganegara", "Bukan Warganegara")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, kadPengenalanOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        kadPengenalanSpinner.adapter = adapter
+
+        // Button click listener
+        teruskanButton.setOnClickListener {
+            val nama = namaEditText.text.toString().trim()
+            val emel = emelEditText.text.toString().trim()
+            val nokp = nokpEditText.text.toString().trim()
+            val phone = phoneEditText.text.toString().trim()
+            val pendapatan = pendapatanEditText.text.toString().trim()
+            val kadPengenalan = kadPengenalanSpinner.selectedItem.toString()
+
+            // Basic validation (optional)
+            if (nama.isEmpty() || emel.isEmpty() || nokp.isEmpty() || phone.isEmpty() || pendapatan.isEmpty()) {
+                Toast.makeText(this, "Sila isi semua maklumat.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Pass data to Setpassword.kt
+            val intent = Intent(this, Setpassword::class.java).apply {
+                putExtra("nama", nama)
+                putExtra("emel", emel)
+                putExtra("nokp", nokp)
+                putExtra("phone", phone)
+                putExtra("pendapatan", pendapatan)
+                putExtra("kadPengenalan", kadPengenalan)
+            }
+            startActivity(intent)
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -57,5 +101,6 @@ class Signup_donor1 : AppCompatActivity() {
             val intent = Intent(this, Signin::class.java)
             startActivity(intent)
         }
+
     }
 }
