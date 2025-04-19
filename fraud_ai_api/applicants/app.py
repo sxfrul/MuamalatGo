@@ -9,7 +9,6 @@ from sklearn.preprocessing import OrdinalEncoder
 
 # Function for preprocessing
 def preprocessing(df):
-    df["Kategori Asnaf"] = "Fakir"
     
     # List of documents to flag
     DOCUMENT_LIST = [
