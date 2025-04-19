@@ -25,10 +25,7 @@
             android:name=".Signup_receiver10"
             android:exported="false" />
         <activity
-            android:name=".Signup_receiver9"
-            android:exported="false" />
-        <activity
-            android:name=".Signup_receiver8"
+            android:name=".Signup_receiver8_9"
             android:exported="false" />
         <activity
             android:name=".Signup_receiver7"
@@ -41,9 +38,6 @@
             android:exported="false" />
         <activity
             android:name=".Signup_receiver4"
-            android:exported="false" />
-        <activity
-            android:name=".Try"
             android:exported="false" />
         <activity
             android:name=".Completesignup"
