@@ -38,7 +38,6 @@ android {
 
 dependencies {
     implementation("com.google.firebase:firebase-admin:9.2.0") // Firebase Admin SDK
-    implementation("com.squareup.okhttp3:okhttp:4.12.0") // HTTP client
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
