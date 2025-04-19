@@ -31,7 +31,10 @@
             android:name=".SigninPenderma"
             android:exported="false" />
         <activity
-            android:name=".BantuanPageActivity"
+            android:name=".MohonBantuanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MohonBantuanActivity2"
             android:exported="false" />
         <activity
             android:name=".SigninPenerima"
@@ -79,6 +82,9 @@
             android:exported="false"/>
         <activity
             android:name=".BlockRantaiDonorActivity2"
+            android:exported="false"/>
+        <activity
+            android:name=".WaqfPageActivity"
             android:exported="false"/>
 
 

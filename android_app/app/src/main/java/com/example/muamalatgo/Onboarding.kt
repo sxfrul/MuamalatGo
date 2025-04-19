@@ -22,8 +22,5 @@ class Onboarding : AppCompatActivity() {
             startActivity(Intent(this, SigninPenderma::class.java))
             finish()
         }, 2000)
-
-        startActivity(Intent(this, SigninPenderma::class.java))
-        finish()
     }
 }

@@ -53,25 +53,21 @@ class HomepageDonorActivity : AppCompatActivity() {
         val donasiIcon: ImageView = findViewById(R.id.iconDonasi)
 
         blockchainIcon.setOnClickListener {
-            Toast.makeText(this, "Blockchain clicked", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, BlockRantaiDonorActivity::class.java)
             startActivity(intent)
         }
 
         zakatIcon.setOnClickListener {
-            Toast.makeText(this, "Zakat clicked", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ZakatPageActivity::class.java)
             startActivity(intent)
         }
 
         masjidIcon.setOnClickListener {
-            Toast.makeText(this, "Masjid clicked", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, SadaqahPageActivity::class.java)
+            val intent = Intent(this, WaqfPageActivity::class.java)
             startActivity(intent)
         }
 
         donasiIcon.setOnClickListener {
-            Toast.makeText(this, "Donasi clicked", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, SadaqahPageActivity::class.java)
             startActivity(intent)
         }

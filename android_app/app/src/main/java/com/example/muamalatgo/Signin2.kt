@@ -61,13 +61,13 @@ class SigninPenerima : AppCompatActivity() {
         }
 
         // 🟦 When Penderma button clicked: (stay on this activity or show toast)
-        buttonPenderma.setOnClickListener {
-            Toast.makeText(this, "Anda sedang dalam skrin Penderma", Toast.LENGTH_SHORT).show()
+        buttonPenerima.setOnClickListener {
+            Toast.makeText(this, "Anda sedang dalam skrin Penerima", Toast.LENGTH_SHORT).show()
         }
 
         // 🟨 When Penerima button clicked: move to SigninPenerima activity
-        buttonPenerima.setOnClickListener {
-            val intent = Intent(this, SigninPenerima::class.java)
+        buttonPenderma.setOnClickListener {
+            val intent = Intent(this, SigninPenderma::class.java)
             startActivity(intent)
         }
     }

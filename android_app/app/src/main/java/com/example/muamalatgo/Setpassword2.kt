@@ -26,15 +26,16 @@ class Setpassword2 : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        val receiverData = intent.getSerializableExtra("receiverData") as? HashMap<String, String>
+        // Cast as HashMap<String, Any> to support mixed types (String, Int, Boolean, etc)
+        val receiverData = intent.getSerializableExtra("receiverData") as? HashMap<String, Any>
 
-        if (receiverData == null || receiverData["emel"].isNullOrEmpty()) {
+        if (receiverData == null || receiverData["Emel"].toString().isEmpty()) {
             Toast.makeText(this, "Data penerima tidak lengkap.", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
-        etEmail.setText(receiverData["emel"])
+        etEmail.setText(receiverData["Emel"].toString())
         etEmail.isEnabled = false
 
         btnRegister.setOnClickListener {
@@ -45,14 +46,14 @@ class Setpassword2 : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val email = receiverData["emel"]!!
+            val email = receiverData["Emel"].toString()
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val uid = firebaseAuth.currentUser?.uid
                         if (uid != null) {
-                            firestore.collection("Penerima").document(uid).set(receiverData)
+                            firestore.collection("PenerimaAPI").document(uid).set(receiverData)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Pendaftaran berjaya!", Toast.LENGTH_LONG).show()
                                     startActivity(Intent(this, Completesignup::class.java))

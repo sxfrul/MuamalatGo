@@ -37,7 +37,7 @@ class HomepageReceiverActivity : AppCompatActivity() {
         }
 
         val userId = currentUser.uid
-        firestore.collection("Penerima").document(userId).get()
+        firestore.collection("PenerimaAPI").document(userId).get()
             .addOnSuccessListener { document ->
                 if (document != null && document.exists()) {
 
@@ -60,20 +60,18 @@ class HomepageReceiverActivity : AppCompatActivity() {
         val bantuanIcon: ImageView = findViewById(R.id.icon2)
 
         blockchainIcon.setOnClickListener {
-            Toast.makeText(this, "Blockchain clicked", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, BlockRantaiDonorActivity2::class.java)
             startActivity(intent)
         }
 
         bantuanIcon.setOnClickListener {
-            Toast.makeText(this, "Zakat clicked", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, BantuanPageActivity::class.java)
+            val intent = Intent(this, MohonBantuanActivity::class.java)
             startActivity(intent)
         }
 
         val statusButton: Button = findViewById(R.id.statusButton)
         statusButton.setOnClickListener {
-            Toast.makeText(this, "Status button pressed — implement later", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Not Implemented", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, SadaqahPageActivity::class.java)
             startActivity(intent)
         }

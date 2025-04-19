@@ -36,7 +36,7 @@ class Signup_donor1 : AppCompatActivity() {
         kadPengenalanSpinner.adapter = adapter
 
         findViewById<TextView>(R.id.textView17).setOnClickListener {
-            startActivity(Intent(this, Signup_donor::class.java))
+            startActivity(Intent(this, SigninPenderma::class.java))
         }
 
         findViewById<TextView>(R.id.textView15).setOnClickListener {

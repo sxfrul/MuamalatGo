@@ -46,16 +46,13 @@ class WaqfPageActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, HomepageDonorActivity::class.java))
                     true
                 }
                 R.id.nav_history -> {
-                    Toast.makeText(this, "History clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_settings -> {
-                    Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false
