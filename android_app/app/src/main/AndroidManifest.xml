@@ -90,6 +90,22 @@
         <activity
             android:name=".SettingsDonorActivity"
             android:exported="false" />
+        <activity
+            android:name=".ZakatPageActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".PaymentPageActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".PaymentPageActivity2"
+            android:exported="false"/>
+        <activity
+            android:name=".PaymentPageActivity12"
+            android:exported="false"/>
+        <activity
+            android:name=".BlockRantaiDonorActivity"
+            android:exported="false"/>
+
 
 
 

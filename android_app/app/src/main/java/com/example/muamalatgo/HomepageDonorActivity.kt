@@ -54,10 +54,14 @@ class HomepageDonorActivity : AppCompatActivity() {
 
         blockchainIcon.setOnClickListener {
             Toast.makeText(this, "Blockchain clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, BlockRantaiDonorActivity::class.java)
+            startActivity(intent)
         }
 
         zakatIcon.setOnClickListener {
             Toast.makeText(this, "Zakat clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ZakatPageActivity::class.java)
+            startActivity(intent)
         }
 
         masjidIcon.setOnClickListener {
