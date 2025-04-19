@@ -6,10 +6,10 @@
     android:background="@drawable/gradient2_backgroundcolor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signin2">
+    tools:context=".SigninPenerima">
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/buttonPenderma"
         android:layout_width="185dp"
         android:layout_height="60dp"
         android:text="Penderma"
@@ -28,7 +28,7 @@
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonPenerima"
         android:layout_width="146dp"
         android:layout_height="60dp"
         android:text="Penerima"
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.804" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textViewLogMasuk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/istok_web_bold"
@@ -104,7 +104,7 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <EditText
-        android:id="@+id/editTextText8"
+        android:id="@+id/emailInputLogin"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner3"
@@ -120,7 +120,7 @@
         app:layout_constraintVertical_bias="0.446" />
 
     <EditText
-        android:id="@+id/editTextText9"
+        android:id="@+id/passwordInputLogin"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner3"
@@ -136,7 +136,7 @@
         app:layout_constraintVertical_bias="0.536" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonLoginPenerima"
         android:layout_width="138dp"
         android:layout_height="67dp"
         android:backgroundTint="@color/pink"

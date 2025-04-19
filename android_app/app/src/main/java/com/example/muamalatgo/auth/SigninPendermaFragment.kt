@@ -20,7 +20,7 @@ class LoginPendermaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_login_penderma, container, false)
+        val view = inflater.inflate(R.layout.activity_signin, container, false)
 
         emailInput = view.findViewById(R.id.emailInputLogin)
         passwordInput = view.findViewById(R.id.passwordInputLogin)

@@ -3,193 +3,136 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@drawable/gradient_backgroundcolor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_backgroundcolor"
     tools:context=".Signup_receiver8">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
+    <!-- Header -->
+    <TextView
+        android:id="@+id/textView102"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/daftar"
+        android:textColor="@color/textblue"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/istok_web_bold"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428">
+        app:layout_constraintBottom_toTopOf="@id/textView103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textView103"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cipta_akaun"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:fontFamily="@font/istok_web_bold"
+        app:layout_constraintTop_toBottomOf="@id/textView102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <!-- Form Fields Scrollable -->
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textView103"
+        app:layout_constraintBottom_toTopOf="@id/button25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp">
 
-            <ScrollView
+            <EditText
+                android:id="@+id/fullName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                android:scrollbarSize="3dp"/>
+                android:layout_height="60dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="@string/nama_penuh"
+                android:padding="12dp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+            <EditText
+                android:id="@+id/identityNumber"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="@string/no_kp"
+                android:padding="12dp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="450dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/rounded_border"
-                        android:orientation="vertical"
-                        android:padding="12dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:layout_editor_absoluteY="541dp">
+            <EditText
+                android:id="@+id/relation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="@string/hubungan"
+                android:padding="12dp" />
 
-                    <EditText
-                        android:id="@+id/signuprm"
-                        android:layout_width="330dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/edittext_bg"
-                        android:hint="Nama Penuh"
-                        android:padding="12dp" />
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="@string/umur"
+                android:padding="12dp" />
 
-                    <EditText
-                        android:id="@+id/signupnokp"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/edittext_bg"
-                        android:hint="No. K\P"
-                        android:padding="12dp"
-                        android:layout_marginTop="8dp"/>
+            <Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rectangular_corner2"
+                android:prompt="@string/status" />
 
-                    <EditText
-                        android:id="@+id/signupnokp"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/edittext_bg"
-                        android:hint="Hubungan"
-                        android:padding="12dp"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:id="@+id/signupnokp"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/edittext_bg"
-                        android:hint="Umur"
-                        android:padding="12dp"
-                        android:layout_marginTop="8dp"/>
-
-                    <Spinner
-                        android:id="@+id/spinner6"
-                        android:layout_width="328dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/rectangular_corner2"
-                        android:paddingLeft="12dp"
-                        android:prompt="Status"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.495"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.497"
-                        android:layout_marginTop="8dp"/>
-
-                    <Spinner
-                        android:id="@+id/spinner7"
-                        android:layout_width="328dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/rectangular_corner2"
-                        android:paddingLeft="12dp"
-                        android:prompt="Kesihatan"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.495"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.497"
-                        android:layout_marginTop="8dp"/>
-
-                    </LinearLayout>
-            </LinearLayout>
+            <Spinner
+                android:id="@+id/spinnerHealth"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rectangular_corner2"
+                android:prompt="@string/kesihatan" />
         </LinearLayout>
-    </HorizontalScrollView>
-    </LinearLayout>
-<TextView
-android:id="@+id/textView102"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/istok_web_bold"
-        android:text="@string/daftar"
-        android:textColor="@color/textblue"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+    </ScrollView>
 
-    <TextView
-    android:id="@+id/textView103"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:fontFamily="@font/istok_web_bold"
-    android:text="@string/cipta_akaun"
-    android:textColor="@color/black"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.177" />
-
-    <TextView
-    android:id="@+id/textView104"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Kembali"
-    android:textColor="@color/darkblue"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
-
+    <!-- Bottom: Continue button -->
     <Button
         android:id="@+id/button25"
         android:layout_width="138dp"
         android:layout_height="67dp"
-        android:backgroundTint="@color/blue"
-        android:fontFamily="@font/istok_web"
         android:text="@string/teruskan"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        android:fontFamily="@font/istok_web"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toTopOf="@id/textView105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Bottom text for login -->
     <TextView
         android:id="@+id/textView105"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sudah_mempunyai_akaun"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintBottom_toTopOf="@id/textView106"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView106"
@@ -199,10 +142,7 @@ android:id="@+id/textView102"
         android:textColor="@color/darkblue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -153,7 +153,7 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner2"
         android:paddingLeft="12dp"
-        android:prompt="Jenis Kad Pengenalan"
+        android:prompt="@string/jenis_kad_pengenalan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

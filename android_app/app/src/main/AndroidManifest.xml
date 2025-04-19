@@ -43,9 +43,6 @@
             android:name=".Signup_receiver4"
             android:exported="false" />
         <activity
-            android:name=".Try"
-            android:exported="false" />
-        <activity
             android:name=".Completesignup"
             android:exported="false" />
         <activity
@@ -58,7 +55,7 @@
             android:name=".Signup_receiver2"
             android:exported="false" />
         <activity
-            android:name=".Onboarding"
+            android:name=".HomepageDonorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,10 +64,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Signin"
+            android:name=".SigninPenderma"
             android:exported="false" />
         <activity
-            android:name=".Signin2"
+            android:name=".SigninPenerima"
             android:exported="false" />
         <activity
             android:name=".Signup_donor"

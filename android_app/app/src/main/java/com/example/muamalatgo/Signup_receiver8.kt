@@ -23,13 +23,13 @@ class Signup_receiver8 : AppCompatActivity() {
             insets
         }
 
-        val spinner6: Spinner = findViewById(R.id.spinner6)
+        val spinnerStatus = findViewById<Spinner>(R.id.spinnerStatus)
         val listItems6 = listOf("Bujang", "Berkahwin", "Lain-lain")
         val adapter6 = ArrayAdapter(this, android.R.layout.simple_spinner_item, listItems6)
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner6.adapter = adapter6
+        spinnerStatus.adapter = adapter6
 
-        spinner6.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinnerStatus.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selected = parent?.getItemAtPosition(position).toString()
                 Toast.makeText(this@Signup_receiver8, "Anda pilih status: $selected", Toast.LENGTH_SHORT).show()
@@ -38,13 +38,13 @@ class Signup_receiver8 : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        val spinner7: Spinner = findViewById(R.id.spinner7)
+        val spinnerHealth = findViewById<Spinner>(R.id.spinnerHealth)
         val listItems7 = listOf("Sihat", "Sakit", "Cacat")
         val adapter7 = ArrayAdapter(this, android.R.layout.simple_spinner_item, listItems7)
         adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner7.adapter = adapter7
+        spinnerHealth.adapter = adapter7
 
-        spinner7.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinnerHealth.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selected = parent?.getItemAtPosition(position).toString()
                 Toast.makeText(this@Signup_receiver8, "Anda pilih kesihatan: $selected", Toast.LENGTH_SHORT).show()

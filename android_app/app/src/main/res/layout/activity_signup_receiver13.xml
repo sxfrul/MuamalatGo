@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangular_corner2"
         android:paddingLeft="12dp"
-        android:prompt="Sebab Mohon Bantuan"
+        android:prompt="@string/sebab_mohon_bantuan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
