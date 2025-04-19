@@ -11,56 +11,85 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+// Sorting Order
+const ASNAF_ORDER = ['Fakir', 'Miskin', 'Mualaf', 'Riqab', 'Gharim', 'Fisabilillah', 'Ibnu Sabil'];
+
 // Real-time listener
 function setupRealtimeUpdates() {
     // db.collection("Penerima").onSnapshot((snapshot) => {
     db.collection("Penerima")
-      .limit(2)
+      .limit(10)
       .get()
       .then((snapshot) => {
-        const tbody = document.getElementById("tableBody");
-        tbody.innerHTML = "";
+        const items = snapshot.docs.map(doc => ({
+          id: doc.id,
+          data: doc.data()
+        }));
+    
+    // Sorting logic (Chatgpt Referred)
+    items.sort((a, b) => {
+      const grpA = a.data["Kategori Asnaf"] || "";
+      const grpB = b.data["Kategori Asnaf"] || "";
+      const idxA = ASNAF_ORDER.indexOf(grpA);
+      const idxB = ASNAF_ORDER.indexOf(grpB);
 
-        snapshot.forEach((doc) => {
-          const data = doc.data();
-          const row = document.createElement("tr");
-          //row.className = data.approved ? "approved" : "pending";
+      const orderA = idxA === -1 ? ASNAF_ORDER.length : idxA;
+      const orderB = idxB === -1 ? ASNAF_ORDER.length : idxB;
 
-          row.innerHTML = `
-                <td>${data["Nama Pemohon/Institusi"] || "N/A"}</td>
-                <td>${
-                  data["No. K/P (baru)/Polis/Tentera/No. Pasport"] || "N/A"
-                }</td>
-                <td>${data["Emel"] || "N/A"}</td>
-                <td>${data["No. Telefon Bimbit"] || "N/A"}</td>
-                <td>${data["Kelayakan"] || "N/A"}</td>
-                <td>${data["Kategori Asnaf"] || "N/A"}</td>
-                <td>
-                    <span class="status-indicator"></span>
-                    ${data.approved ? "Approved" : "Pending"}
-                </td>
-                <td>
-                    <button 
-                        class="${data.approved ? "revoke" : ""}" 
-                        onclick="toggleApproval('${doc.id}', ${!data.approved})"
-                        ${
-                          data.approved
-                            ? 'title="Revoke Approval"'
-                            : 'title="Approve Applicant"'
-                        }
-                    >
-                        ${data.approved ? "Revoke" : "Approve"}
-                    </button>
-                </td>
-                <td>
-                    <button class="expand-btn" data-id="${doc.id}">Kembangkan ▼</button>
-                </td>
-            `;
+      if (orderA !== orderB) return orderA - orderB;
 
-          tbody.appendChild(row);
-        });
-      });
+      // Same Asnaf group → compare dates
+      const dateA = new Date(a.data["Tarikh"]);
+      const dateB = new Date(b.data["Tarikh"]);
+      return dateA - dateB;  // Earlier date first
+    });
+
+    renderRows(items);
+  });
 }
+
+function renderRows(items){
+  const tbody = document.getElementById("tableBody");
+    tbody.innerHTML = "";   
+
+    items.forEach((item) => {
+      const data = item.data;
+      const row = document.createElement("tr");
+      //row.className = data.approved ? "approved" : "pending";
+
+      row.innerHTML = `
+        <td>${data["Nama Pemohon/Institusi"] || "N/A"}</td>
+        <td>${
+          data["No. K/P (baru)/Polis/Tentera/No. Pasport"] || "N/A"
+        }</td>
+        <td>${data["Emel"] || "N/A"}</td>
+        <td>${data["No. Telefon Bimbit"] || "N/A"}</td>
+        <td>${data["Kelayakan"] || "N/A"}</td>
+        <td>${data["Kategori Asnaf"] || "N/A"}</td>
+        <td>
+            <span class="status-indicator"></span>
+            ${data.approved ? "Approved" : "Pending"}
+        </td>
+        <td>
+            <button 
+                class="${data.approved ? "revoke" : ""}" 
+                onclick="toggleApproval('${item.id}', ${!data.approved})"
+                ${
+                  data.approved
+                    ? 'title="Revoke Approval"'
+                    : 'title="Approve Applicant"'
+                }
+            >
+                ${data.approved ? "Revoke" : "Approve"}
+            </button>
+        </td>
+        <td>
+            <button class="expand-btn" data-id="${item.id}">Kembangkan ▼</button>
+        </td>
+    `;
+      tbody.appendChild(row);
+    });
+  };
 
 // Expand for more info
 // Other field
@@ -110,10 +139,26 @@ const DETAIL_FIELDS = [
 ];
 
 function buildDetailHTML(extra) {
-    return DETAIL_FIELDS
-      .map(f => `<strong>${f.label}:</strong> ${extra[f.key] || "–"}<br>`)
-      .join("");
-  }
+  return DETAIL_FIELDS
+    .map(f => {
+      const value = extra[f.key];
+
+      // Special formatting for "Maklumat Isi Rumah"
+      if (f.key === "Maklumat Isi Rumah" && Array.isArray(value)) {
+        const rumahHTML = value.map((item, index) => {
+          const details = Object.entries(item)
+            .map(([k, v]) => `<strong>${k}:</strong> ${v}`)
+            .join("<br>");
+          return `<div style="margin-bottom: 1em;"><u>Ahli Isi Rumah ${index + 1}</u><br>${details}</div>`;
+        }).join("");
+        return `<strong>${f.label}:</strong><br>${rumahHTML}`;
+      }
+
+      // Default for other fields
+      return `<strong>${f.label}:</strong> ${value || "–"}<br>`;
+    })
+    .join("");
+}
 
 
 document.getElementById("tableBody").addEventListener("click", (e) => {
@@ -162,3 +207,7 @@ async function toggleApproval(applicantId, newStatus) {
 window.addEventListener('load', () => {
     setupRealtimeUpdates();
 });
+
+//Reference from
+// 1. Chatgpt
+// 2. Deepseek
