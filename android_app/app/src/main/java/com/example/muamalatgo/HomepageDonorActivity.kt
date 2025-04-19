@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,6 +21,8 @@ class HomepageDonorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_homepage_donor)
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
         fullnameText = findViewById(R.id.fullnamePenderma)
         nokpText = findViewById(R.id.nokpPenderma)
@@ -77,6 +80,23 @@ class HomepageDonorActivity : AppCompatActivity() {
             Toast.makeText(this, "Status button pressed — implement later", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, SadaqahPageActivity::class.java)
             startActivity(intent)
+        }
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, HomepageDonorActivity::class.java))
+                    true
+                }
+                R.id.nav_history -> {
+                    true
+                }
+                R.id.nav_settings -> {
+                    startActivity(Intent(this, SettingsDonorActivity::class.java))
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

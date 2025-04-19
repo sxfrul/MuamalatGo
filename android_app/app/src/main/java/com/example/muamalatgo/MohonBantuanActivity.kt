@@ -50,7 +50,7 @@ class MohonBantuanActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_settings -> {
-                    startActivity(Intent(this, SettingsDonorActivity::class.java))
+                    startActivity(Intent(this, SettingsRecActivity::class.java))
                     true
                 }
                 else -> false
